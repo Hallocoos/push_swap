@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   listfunctions.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/18 13:54:23 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/07/18 14:09:09 by hde-vos          ###   ########.fr       */
+/*   Created: 2019/07/25 15:49:39 by hde-vos           #+#    #+#             */
+/*   Updated: 2019/07/25 15:55:44 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_stack	*createlist(int	n, t_stack *stack)
+#include "push_swap.h"
+
+int	main(int argc, char **argv)
 {
-	stack->value = NULL;
-	stack->next = NULL;
-	stack->prev = NULL;
-	while (n-- > 0)
-	{
-		stack->value = NULL;
-		stack->next = NULL;
-		stack->prev = NULL;
-	}
+	t_stack	*stacka;
+
+	stacka = stackfill(argc, argv);
+	print_stack(&stacka);
+	return (0);
 }
