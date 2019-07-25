@@ -1,0 +1,26 @@
+Check arguments:
+	-amount of unsorted args
+	-amount of function args
+
+			Skip first index of argv
+			Iterate until index is no longer int
+			Iterate until index is no longer char *
+
+Allocate memory for stack a and b:
+	-amount of unsorted args
+	-
+
+Copy int arguments into stack a:
+	-amount of unsorted args
+	-linked list to store into
+	-
+
+Execute function args on unsorted as efficiently as possible:
+	-linked list containing all unsorted args
+	-list of function args to execute onto linked list containing all unsorted args
+	-
+
+Check whether stack is sorted:
+	-linked list containing all "sorted" args
+	-print "KO" or "OK"
+
