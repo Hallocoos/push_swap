@@ -5,48 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 13:55:27 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/07/18 13:54:18 by hde-vos          ###   ########.fr       */
+/*   Created: 2019/07/26 11:05:42 by hde-vos           #+#    #+#             */
+/*   Updated: 2019/07/26 12:46:51 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
-void		create_list(int n, t_stack *stack)
+t_stack		*sort(t_stack **stacka, t_stack **stackb)
 {
-	while (n-- > 0)
-		lstadd(&stack, lstnew(NULL, 0)); 
+	stackb = stacka;
+	return (*stacka);
 }
 
-t_stack		*store_args(char **args, char c)
+int		checker(t_stack **stack)
 {
-	t_stack	*list;
-	int		i;
-	int		j;
+	t_stack	*temp;
+	t_stack *tempnext;
 
-	if (c == '1')
-		while (args[0][0] >= '0' || args[0][0] <= '9')
-			i++;
-	if (c == 'a')
-		while (args[0][0] >= 'a' || args[0][0] <= 'z')
-			i++;
-	create_list(i, list);
-	list = (t_stack *)malloc(sizeof(t_stack) * i);
-	j = 0;
-	while (i--)
+	temp = *stack;
+	tempnext = (*stack)->next;
+	if (temp && temp->next)
 	{
-		list->value = ft_atoi(args[j++]);
-		list = list->next;
-	}		
-	return (list);
+		while (tempnext)
+		{
+			if (tempnext->value < temp->value)
+				return (0);
+			temp = tempnext;
+			tempnext = tempnext->next;
+		}
+	}
+	return (1);
 }
 
-int			main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*stacka;
-	t_stack	*stackb;
+	t_stack *stackb;
 
-	stacka = store_args(argv, '1');
-	stackb = store_args(argv, 'a');
+	stacka = stackfill(argc, argv);
+	stackb = (t_stack *)malloc(sizeof(t_stack) * argc - 1);
+	print_stack(&stacka);
+	if (!(checker(&stacka) == 1))
+		sort(&stacka, &stackb);
 	return (0);
 }
