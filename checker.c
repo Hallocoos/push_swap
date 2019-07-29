@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:05:42 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/07/26 12:46:51 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/07/29 15:36:17 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 
 t_stack		*sort(t_stack **stacka, t_stack **stackb)
 {
-	stackb = stacka;
 	return (*stacka);
 }
 
-int		checker(t_stack **stack)
+int			checker(t_stack **stack)
 {
 	t_stack	*temp;
 	t_stack *tempnext;
@@ -39,7 +38,7 @@ int		checker(t_stack **stack)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	t_stack	*stacka;
 	t_stack *stackb;
