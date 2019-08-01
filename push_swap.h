@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:59:24 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/07/26 10:59:20 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/01 17:32:45 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,10 @@ t_stack	*createnode(int n);
 void	add_tail(t_stack *new, t_stack **stack);
 void	print_stack(t_stack **stack);
 t_stack	*stackfill(int n, char **args);
+void	ft_sa(t_stack **stacka, int n);
+void	ft_sb(t_stack **stacka, int n);
+void	ft_ss(t_stack **stacka, t_stack **stackb);
+void	ft_pa(t_stack **stacka, t_stack **stackb, int n);
+void	ft_pb(t_stack **stacka, t_stack **stackb, int n);
 
 # endif

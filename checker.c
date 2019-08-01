@@ -6,16 +6,26 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:05:42 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/07/29 15:36:17 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/01 18:58:50 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-t_stack		*sort(t_stack **stacka, t_stack **stackb)
+void		sort(t_stack **stacka, t_stack **stackb)
 {
-	return (*stacka);
+	ft_sa(stacka, 1);
+	print_stack(stacka);
+	ft_sb(stackb, 1);
+	print_stack(stacka);
+	ft_ss(stacka, stackb);
+	print_stack(stacka);
+	ft_pa(stacka, stackb, 1);
+	print_stack(stacka);
+	print_stack(stackb);
+	ft_pb(stacka, stackb, 1);
+	print_stack(stacka);
+	print_stack(stackb);
 }
 
 int			checker(t_stack **stack)
@@ -35,6 +45,8 @@ int			checker(t_stack **stack)
 			tempnext = tempnext->next;
 		}
 	}
+	free(temp);
+	free(tempnext);
 	return (1);
 }
 
@@ -43,10 +55,15 @@ int			main(int argc, char **argv)
 	t_stack	*stacka;
 	t_stack *stackb;
 
-	stacka = stackfill(argc, argv);
-	stackb = (t_stack *)malloc(sizeof(t_stack) * argc - 1);
-	print_stack(&stacka);
-	if (!(checker(&stacka) == 1))
-		sort(&stacka, &stackb);
+	if (argc > 1)
+	{
+		stacka = stackfill(argc, argv);
+		stackb = stackfill(argc, NULL);
+		stackb = (t_stack *)malloc(sizeof(t_stack) * argc - 1);
+		print_stack(&stacka);
+		print_stack(&stackb);
+		if (!(checker(&stacka) == 1))
+			sort(&stacka, &stackb);
+	}
 	return (0);
 }

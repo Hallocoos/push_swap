@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/25 11:34:21 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/07/09 12:08:48 by hde-vos          ###   ########.fr       */
+/*   Created: 2019/05/29 11:38:14 by hde-vos           #+#    #+#             */
+/*   Updated: 2019/08/01 10:44:00 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # define INTMIN -2147483648
 # define INTMAX 2147483648
+# define BUFF_SIZE 1
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -90,12 +91,13 @@ int					ft_wordlen(char const *s, char c, int k);
 int					ft_len(int n);
 char				*ft_convert(int n, char *str, int i);
 int					ft_isupper(int c);
+char				*ft_strndup(const char *s, size_t n);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-int					ft_isnum(int n);
+int					get_next_line(const int fd, char **line);
 
 #endif

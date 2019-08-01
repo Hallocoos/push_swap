@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 11:34:21 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/07/09 12:08:48 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/01 10:42:56 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # define INTMIN -2147483648
 # define INTMAX 2147483648
+# define BUFF_SIZE 1
 
 # include <stdlib.h>
 # include <unistd.h>
