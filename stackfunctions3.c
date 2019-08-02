@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 12:04:21 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/02 12:24:16 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/02 13:37:04 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_rra(t_stack **stacka, int n)
 		first->prev = last;
 		first->next = NULL;
 		temp->next = NULL;
-		stacka = &temp;
+		*stacka = temp;
 		if (n == 1)
 			ft_putstr("rra\n");
 	}
@@ -58,7 +58,7 @@ void	ft_rrb(t_stack **stackb, int n)
 		first->prev = last;
 		first->next = NULL;
 		temp->next = NULL;
-		stackb = &temp;
+		*stackb = temp;
 		if (n == 1)
 			ft_putstr("rrb\n");
 	}
