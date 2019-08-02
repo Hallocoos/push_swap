@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stackfunctions2.c                                  :+:      :+:    :+:   */
+/*   stackfunctions3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/01 17:28:54 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/02 12:04:16 by hde-vos          ###   ########.fr       */
+/*   Created: 2019/08/02 12:04:21 by hde-vos           #+#    #+#             */
+/*   Updated: 2019/08/02 12:24:16 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//ra :rotate a- shift up all elements of stackaby 1. The first element becomesthe 
-//last one.
+//rra :reverse rotate a- shift down all elements of stackaby 1. The last element
+//becomes the first one.
 
-void	ft_ra(t_stack **stacka, int n)
+void	ft_rra(t_stack **stacka, int n)
 {
-	t_stack	*first;
-	t_stack	*last;
-	t_stack	*temp;
+	t_stack *first;
+	t_stack *last;
+	t_stack *temp;
 
 	first = *stacka;
 	last = *stacka;
@@ -31,21 +31,21 @@ void	ft_ra(t_stack **stacka, int n)
 		last->next = first;
 		first->prev = last;
 		first->next = NULL;
-		temp->prev = NULL;
-		*stacka = temp;
+		temp->next = NULL;
+		stacka = &temp;
 		if (n == 1)
-			ft_putstr("ra\n");
+			ft_putstr("rra\n");
 	}
 }
 
-//rb :rotate b- shift up all elements of stackbby 1. The first element
-//becomes the last one.
+//rrb :reverse rotate b- shift down all elements of stackbby 1. The last element
+//becomes the first one.
 
-void	ft_rb(t_stack **stackb, int n)
+void	ft_rrb(t_stack **stackb, int n)
 {
-	t_stack	*first;
-	t_stack	*last;
-	t_stack	*temp;
+	t_stack *first;
+	t_stack *last;
+	t_stack *temp;
 
 	first = *stackb;
 	last = *stackb;
@@ -57,18 +57,18 @@ void	ft_rb(t_stack **stackb, int n)
 		last->next = first;
 		first->prev = last;
 		first->next = NULL;
-		temp->prev = NULL;
-		*stackb = temp;
+		temp->next = NULL;
+		stackb = &temp;
 		if (n == 1)
-			ft_putstr("rb\n");
+			ft_putstr("rrb\n");
 	}
 }
 
-//rr :raandrbat the same time.
+//rrr :rraandrrbat the same time.
 
-void	ft_rr(t_stack **stacka, t_stack **stackb)
+void	ft_rrr(t_stack **stacka, t_stack **stackb)
 {
-	ft_ra(stacka, 0);
-	ft_ra(stackb, 0);
-	ft_putstr("rr\n");
+	ft_rra(stacka, 0);
+	ft_rrb(stackb, 0);
+	ft_putstr("rrr\n");
 }

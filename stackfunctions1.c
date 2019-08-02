@@ -6,11 +6,12 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:32:20 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/01 17:47:10 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/02 11:32:07 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h" 
+#include "push_swap.h"
+#include <stdio.h>
 
 //sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if
 //there is only one or no elements).
@@ -77,10 +78,10 @@ void	ft_pa(t_stack **stacka, t_stack **stackb, int n)
 	t_stack	*tempa;
 	t_stack	*tempb;
 
-	if (*stacka && *stackb)
+	tempa = *stacka;
+	tempb = (*stackb)->next;
+	if (tempa && tempb)
 	{
-		tempa = *stacka;
-		tempb = (*stackb)->next;
 		tempa->next = *stackb;
 		(*stackb)->prev = tempa;
 		(*stackb)->next = NULL;
@@ -100,10 +101,10 @@ void	ft_pb(t_stack **stacka, t_stack **stackb, int n)
 	t_stack	*tempb;
 	t_stack	*tempa;
 
-	if (*stacka && *stackb)
+	tempb = *stackb;
+	tempa = (*stacka)->next;
+	if (tempa && tempb)
 	{
-		tempb = *stackb;
-		tempa = (*stacka)->next;
 		tempb->next = *stacka;
 		(*stacka)->prev = tempb;
 		(*stacka)->next = NULL;
