@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:59:24 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/02 12:23:26 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/05 15:36:47 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_pa(t_stack **stacka, t_stack **stackb, int n);
 void	ft_pb(t_stack **stacka, t_stack **stackb, int n);
 void	ft_ra(t_stack **stacka, int n);
 void	ft_rb(t_stack **stackb, int n);
+void	ft_rr(t_stack **stacka, t_stack **stackb);
 void	ft_rra(t_stack **stacka, int n);
 void	ft_rrb(t_stack **stackb, int n);
 void	ft_rrr(t_stack **stacka, t_stack **stackb);
