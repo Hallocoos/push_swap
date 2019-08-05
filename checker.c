@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:05:42 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/02 13:36:34 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/05 14:07:52 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		sort(t_stack **stacka, t_stack **stackb)
 	ft_sa(stacka, 1);
 	print_stack(stacka);
 	ft_sb(stackb, 1);
-	print_stack(stacka);
+	print_stack(stackb);
 	ft_ss(stacka, stackb);
 	ft_pa(stacka, stackb, 1);
 	print_stack(stacka);
@@ -27,6 +27,7 @@ void		sort(t_stack **stacka, t_stack **stackb)
 	print_stack(stackb);
 	ft_ra(stacka, 1);
 	print_stack(stacka);
+	ft_pb(stacka, stackb, 1);
 	ft_rb(stackb, 1);
 	print_stack(stackb);
 	ft_rra(stacka, 1);

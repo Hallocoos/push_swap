@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:32:20 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/02 13:45:01 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/05 13:32:18 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ void	ft_pa(t_stack **stacka, t_stack **stackb, int n)
 	tempb = (*stackb)->next;
 	if (tempa && tempb)
 	{
-		tempa->next = *stackb;
-		(*stackb)->prev = tempa;
-		(*stackb)->next = NULL;
+		tempa->prev = *stackb;
+		(*stackb)->next = tempa;
+		(*stackb)->prev = NULL;
 		tempb->prev = NULL;
 		*stacka = *stackb;
 		*stackb = tempb;
@@ -105,9 +105,9 @@ void	ft_pb(t_stack **stacka, t_stack **stackb, int n)
 	tempa = (*stacka)->next;
 	if (tempa && tempb)
 	{
-		tempb->next = *stacka;
-		(*stacka)->prev = tempb;
-		(*stacka)->next = NULL;
+		tempb->prev = *stacka;
+		(*stacka)->next = tempb;
+		(*stacka)->prev = NULL;
 		tempa->prev = NULL;
 		*stackb = *stacka;
 		*stacka = tempa;

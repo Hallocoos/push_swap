@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:28:54 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/02 13:30:23 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/05 13:45:08 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_rb(t_stack **stackb, int n)
 	}
 }
 
-//rr :raandrbat the same time.
+//rr :ra and rb at the same time.
 
 void	ft_rr(t_stack **stacka, t_stack **stackb)
 {
