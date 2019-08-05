@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 12:04:21 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/05 14:07:21 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/05 14:18:58 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,16 @@ void	ft_rra(t_stack **stacka, int n)
 
 	first = *stacka;
 	last = *stacka;
-	temp = last->prev;
 	if (first && last)
 	{
-		if (*stacka)
-			write(1, "5", 1);
 		while (last->next)
 			last = last->next;
+		temp = last->prev;
 		first->prev = last;
 		last->next = first;
-		last->prev = NULL;
-		write(1, "4", 1);
 		temp->next = NULL;
-		if (*stacka)
-			write(1, "5", 1);
+		last->prev = NULL;
 		*stacka = last;
-		write(1, "6", 1);
 		if (n == 1)
 			ft_putstr("rra\n");
 	}
@@ -56,15 +50,15 @@ void	ft_rrb(t_stack **stackb, int n)
 
 	first = *stackb;
 	last = *stackb;
-	temp = first->next;
 	if (first && last)
 	{
 		while (last->next)
 			last = last->next;
+		temp = last->prev;
 		first->prev = last;
 		last->next = first;
-		last->prev = NULL;
 		temp->next = NULL;
+		last->prev = NULL;
 		*stackb = last;
 		if (n == 1)
 			ft_putstr("rrb\n");
