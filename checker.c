@@ -6,37 +6,38 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:05:42 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/05 14:37:17 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/05 15:23:40 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		sort(t_stack **stacka, t_stack **stackb)
+void		sort(t_stack **stacka, t_stack **stackb, char **args)
 {
-	ft_sa(stacka, 1);
-	print_stack(stacka);
-	ft_sb(stackb, 1);
-	print_stack(stackb);
-	ft_ss(stacka, stackb);
-	ft_pa(stacka, stackb, 1);
-	print_stack(stacka);
-	print_stack(stackb);
-	ft_pb(stacka, stackb, 1);
-	print_stack(stacka);
-	print_stack(stackb);
-	ft_ra(stacka, 1);
-	print_stack(stacka);
-	ft_pb(stacka, stackb, 1);
-	ft_rb(stackb, 1);
-	print_stack(stackb);
-	ft_rra(stacka, 1);
-	print_stack(stacka);
-	ft_rrb(stackb, 1);
-	print_stack(stackb);
-	ft_rrr(stacka, stackb);
-	print_stack(stacka);
-	print_stack(stackb);
+	int	i;
+
+	if (args[i] == "sa")
+		ft_sa(stacka, 1);
+	if (args[i] == "sb")
+		ft_sb(stackb, 1);
+	if (args[i] == "ss")
+		ft_ss(stacka, stackb);
+	if (args[i] == "pa")
+		ft_pa(stacka, stackb, 1);
+	if (args[i] == "pb")
+		ft_pb(stacka, stackb, 1);
+	if (args[i] == "ra")
+		ft_ra(stacka, 1);
+	if (args[i] == "rb")
+		ft_rb(stackb, 1);
+	if (args[i] == "rr")
+		ft_rr(stacka, stackb);
+	if (args[i] == "rra")
+		ft_rra(stacka, 1);
+	if (args[i] == "rrb")
+		ft_rrb(stackb, 1);
+	if (args[i] == "rrr")
+		ft_rrr(stacka, stackb);
 }
 
 int			checker(t_stack **stack)
@@ -65,15 +66,17 @@ int			main(int argc, char **argv)
 {
 	t_stack	*stacka;
 	t_stack *stackb;
+	char	**args;
+	int		ret;
 
+	line = ft_memalloc(sizeof(char **));
+	while ((ret = get_next_line(0, args)) > 0);
 	if (argc > 1)
 	{
 		stacka = stackfill(argc, argv);
 		stackb = stackfill(argc, NULL); 
-//		print_stack(&stacka);
-//		print_stack(&stackb);
 		if (!(checker(&stacka) == 1))
-			sort(&stacka, &stackb);
+			sort(&stacka, &stackb, args);
 	}
 	return (0);
 }
