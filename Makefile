@@ -10,12 +10,11 @@ all: $(NAME)
 
 $(NAME):
 	@gcc $(FLAGS) $(OPT) $(SRC) $(LIBSRC)
-	@ar rc $(NAME) $(OBJ) $(LIBOBJ) /libft
+	@ar rc $(NAME) $(OBJ) $(LIBOBJ)
 #	@echo "Compiled libft.a, push_swap.a and *.o files!"
 
 gcc:
-	@gcc $(FLAGS) $(SRC) $(LIBSRC)
-	@./a.out 1 2 3 4 5 6 7 8 9 0
+	gcc $(FLAGS) lists.c push_swap.h checker.c stackfunctions1.c stackfunctions2.c stackfunctions3.c libft/*.c
 #	@echo "GCC'd source files!"
 so:
 	@gcc -c -Wall -Werror -Wextra $(SRC) $(LIBSRC)

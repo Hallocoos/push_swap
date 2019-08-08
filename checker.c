@@ -6,40 +6,41 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 11:05:42 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/05 15:40:17 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/06 13:10:00 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		sort(t_stack **stacka, t_stack **stackb, char **args)
+void		sort(t_stack **stacka, t_stack **stackb)
 {
-	int	i;
+	int		i;
+	char	*args;
 
 	i = 0;
-	while (args[i] != '\0')
+	while (get_next_line(0, &args) > 0)
 	{
-		if (ft_strcmp(args[i], "sa"))
+		if (ft_strequ(args, "sa"))
 			ft_sa(stacka, 1);
-		else if (ft_strcmp(args[i], "sb"))
+		else if (ft_strequ(args, "sb"))
 			ft_sb(stackb, 1);
-		else if (ft_strcmp(args[i], "ss"))
+		else if (ft_strequ(args, "ss"))
 			ft_ss(stacka, stackb);
-		else if (ft_strcmp(args[i], "pa"))
+		else if (ft_strequ(args, "pa"))
 			ft_pa(stacka, stackb, 1);
-		else if (ft_strcmp(args[i], "pb"))
+		else if (ft_strequ(args, "pb"))
 			ft_pb(stacka, stackb, 1);
-		else if (ft_strcmp(args[i], "ra"))
+		else if (ft_strequ(args, "ra"))
 			ft_ra(stacka, 1);
-		else if (ft_strcmp(args[i], "rb"))
+		else if (ft_strequ(args, "rb"))
 			ft_rb(stackb, 1);
-		else if (ft_strcmp(args[i], "rr"))
+		else if (ft_strequ(args, "rr"))
 			ft_rr(stacka, stackb);
-		else if (ft_strcmp(args[i], "rra"))
+		else if (ft_strequ(args, "rra"))
 			ft_rra(stacka, 1);
-		else if (ft_strcmp(args[i], "rrb"))
+		else if (ft_strequ(args, "rrb"))
 			ft_rrb(stackb, 1);
-		else if (ft_strcmp(args[i], "rrr"))
+		else if (ft_strequ(args, "rrr"))
 			ft_rrr(stacka, stackb);
 		else
 			break ;
@@ -73,17 +74,16 @@ int			main(int argc, char **argv)
 {
 	t_stack	*stacka;
 	t_stack *stackb;
-	char	**args;
-	int		ret;
 
-	args = ft_memalloc(sizeof(char **));
-	while ((ret = get_next_line(0, args)) > 0);
 	if (argc > 1)
 	{
 		stacka = stackfill(argc, argv);
-		stackb = stackfill(argc, NULL); 
-		if (!(checker(&stacka) == 1))
-			sort(&stacka, &stackb, args);
+		stackb = NULL; 
+		sort(&stacka, &stackb);
+		if ((checker(&stacka) == 1) && (stackb == NULL))
+			write(1, "OK\n", 3);
+		else
+			write(1, "KO\n", 3);
 		print_stack(&stacka);
 		print_stack(&stackb);
 	}
