@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:32:20 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/12 12:00:48 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/12 13:00:27 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ void	ft_pb(t_stack **stacka, t_stack **stackb, int n)
 
 	tempb = *stackb;
 	tempa = (*stacka)->next;
-	if (tempa && tempb)
 	{
 		tempb->prev = *stacka;
 		(*stacka)->next = tempb;
