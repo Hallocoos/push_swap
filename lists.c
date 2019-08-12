@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 14:39:36 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/06 12:54:43 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/08 13:13:59 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*createnode(int n)
 	if (new)
 	{
 		new->value = n;
+		new->weight = 0;
 		new->next = NULL;
 		new->prev = NULL;
 	}

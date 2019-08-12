@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:59:24 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/05 15:36:47 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/08 13:13:40 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef	struct		s_stack
 {
 	int				value;
+	int				weight;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
