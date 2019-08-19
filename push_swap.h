@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:59:24 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/08 13:13:40 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/19 10:09:27 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 #include "libft/libft.h"
+#include <stdio.h>
 
 typedef	struct		s_stack
 {

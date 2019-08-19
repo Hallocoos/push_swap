@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 14:39:36 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/08 13:13:59 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/19 10:19:33 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ t_stack	*createnode(int n)
 	
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (new)
-	{
-		new->value = n;
+	{ new->value = n;
 		new->weight = 0;
 		new->next = NULL;
 		new->prev = NULL;
@@ -85,7 +84,7 @@ t_stack	*stackfill(int n, char **args)
 	t_stack	*new;
 	int		i;
 
-	i = 1;
+	i = 0;
 	stack = createnode(ft_atoi(args[i]));
 	if (args)
 	{
