@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 15:07:06 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/19 10:26:07 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/19 14:09:55 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int			checker(t_stack **stack)
 	}
 	free(temp);
 	free(tempnext);
-	return (1);
+	return (isDuplicate(stack));
 }
 
 int			main(int argc, char **argv)
@@ -86,13 +86,17 @@ int			main(int argc, char **argv)
 			args = ft_strsplit(argv[1], ' ');
 			argc = ft_arrlen(args);
 		}
-		stacka = stackfill(argc, args);
+		write(1, "1\n", 1);
+		stacka = stackfill(argc - 1, args);
 		stackb = NULL; 
+		write(1, "A\n", 1);
 		sort(&stacka, &stackb);
+		write(1, "B\n", 1);
 		if ((checker(&stacka) == 1) && (stackb == NULL))
 			write(1, "OK\n", 3);
 		else
 			write(1, "KO\n", 3);
+		write(1, "C\n", 1);
 		print_stack(&stacka);
 		print_stack(&stackb);
 	}
