@@ -6,11 +6,9 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 12:04:21 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/27 11:52:16 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/27 17:04:13 by hde-vos          ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
-
-#include "push_swap.h"
+/* ************************************************************************** */ #include "push_swap.h"
 #include <stdio.h>
 
 //rra :reverse rotate a- shift down all elements of stacka by 1. The last
@@ -73,6 +71,26 @@ void	ft_rrr(t_stack **stacka, t_stack **stackb)
 	ft_putstr("rrr\n");
 }
 
+//check_chars: looks for alphabetic characters inside arguments. If found,
+//return 0, else return 1;
+
+int		check_chars(char **arr)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (arr[i])
+	{
+		j = 0;
+		while (arr[i][j])
+			if (ft_isdigit(arr[i][j++]) == 0)
+				return (1);
+		i++;
+	}
+	return (0);
+}
+
 //isDuplicate: checks for duplicates in the stacka returns 0 if duplicate is
 //found
 
@@ -83,17 +101,19 @@ int		isDuplicate(char **arr)
 
 	i = 0;
 	j = 0;
-	while(arr[i])
+	if (!check_chars(arr))
 	{
-		j = i + 1;
-		while (arr[j])
+		while(arr[i])
 		{
-			if (ft_strequ(arr[i], arr[j]) || (ft_atol(arr[j]) < -2147483648) || 
-					(ft_atol(arr[j]) > 2147483647) || ft_isnumber(arr[i]) == 0)
-				return (0);
-			j++;
+			j = 0;
+			while (arr[j])
+			{
+				if (ft_strequ(arr[i], ft_itoa(ft_atoi(arr[j]))) && i != j)
+					return (0);
+				j++;
+			}
+			i++;
 		}
-		i++;
 	}
 	return (1);
 }

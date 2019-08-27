@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 15:07:06 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/27 13:09:14 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/27 17:03:20 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,24 +80,19 @@ int			main(int argc, char **argv)
 	if (argc > 1)
 	{
 		if (argc == 2)
-		{
 			args = ft_strsplit(argv[1], ' ');
-			argc = ft_arrlen(args);
-		}
-		stacka = stackfill(argc - 1, args);
-		stackb = NULL; 
-	   	print_stack(&stacka);
-		print_stack(&stackb);
-		if (stacka)
+		argc = ft_arrlen(args);
+		if ((stacka = stackfill(argc, args)))
 		{
+			stackb = NULL; 
 			sort(&stacka, &stackb);
 			if ((checker(&stacka) == 1) && (stackb == NULL))
 				write(1, "OK\n", 3);
 			else
 				write(1, "KO\n", 3);
+			print_stack(&stacka);
+			print_stack(&stackb);
 		}
-	   	print_stack(&stacka);
-		print_stack(&stackb);
 	}
 	return (0);
 }
