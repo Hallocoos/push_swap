@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 12:04:21 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/27 10:34:02 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/27 11:52:16 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ void	ft_rra(t_stack **stacka, int n)
 		while (last->next)
 			last = last->next;
 		temp = last->prev;
-		first->prev = last;
-		last->next = first;
+		first->prev = last; last->next = first;
 		temp->next = NULL;
 		last->prev = NULL;
 		*stacka = last;
@@ -89,8 +88,8 @@ int		isDuplicate(char **arr)
 		j = i + 1;
 		while (arr[j])
 		{
-			if (ft_strequ(arr[i], arr[j]) || (ft_atol(arr[j]) < -2147483648) ||
-					(ft_atol(arr[j]) > 2147483647))
+			if (ft_strequ(arr[i], arr[j]) || (ft_atol(arr[j]) < -2147483648) || 
+					(ft_atol(arr[j]) > 2147483647) || ft_isnumber(arr[i]) == 0)
 				return (0);
 			j++;
 		}

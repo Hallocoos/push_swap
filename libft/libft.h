@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 11:38:14 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/27 10:32:48 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/27 11:44:35 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					get_next_line(const int fd, char **line);
 int					ft_arrlen(char **array);
 long				ft_atol(const char *str);
+int					ft_isnumber(char *str);
 
 #endif

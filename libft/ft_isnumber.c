@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 10:43:16 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/27 10:46:17 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/27 11:52:58 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ int		ft_isnumber(char *str)
 	int		i;
 
 	i = 0;
-	while (str[i] && ft_isdigit(str[i]));
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+		i++;
 	if (!str[i])
 		return (1);
-	return (0):
+	return (0);
 }
