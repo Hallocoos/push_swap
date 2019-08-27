@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:32:20 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/19 10:13:43 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/27 09:51:42 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 //sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if
 //there is only one or no elements).
 
-void	ft_sa(t_stack **head, int n)
-{
+void	ft_sa(t_stack **head, int n) {
 	t_stack	*first;
 	t_stack *second;
 	t_stack *third;

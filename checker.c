@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 15:07:06 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/22 11:14:27 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/27 11:32:21 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		sort(t_stack **stacka, t_stack **stackb)
 	char	*args;
 
 	i = 0;
-	while (get_next_line(0, &args) > 0)
+	while (stacka && get_next_line(0, &args) > 0)
 	{
 		if (ft_strequ(args, "sa"))
 			ft_sa(stacka, 1);
@@ -67,7 +67,7 @@ int			checker(t_stack **stack)
 	}
 	free(temp);
 	free(tempnext);
-	return (isDuplicate(stack));
+	return (1);
 }
 
 int			main(int argc, char **argv)
@@ -75,9 +75,7 @@ int			main(int argc, char **argv)
 	t_stack	*stacka;
 	t_stack *stackb;
 	char	**args;
-	int		i;
 
-	i = -1;
 	args = &argv[1];
 	if (argc > 1)
 	{
@@ -88,13 +86,17 @@ int			main(int argc, char **argv)
 		}
 		stacka = stackfill(argc - 1, args);
 		stackb = NULL; 
-		sort(&stacka, &stackb);
-		if ((checker(&stacka) == 1) && (stackb == NULL))
-			write(1, "OK\n", 3);
-		else
-			write(1, "KO\n", 3);
-		write(1, "C\n", 1);
-		print_stack(&stacka);
+	   	print_stack(&stacka);
+		print_stack(&stackb);
+		if (stacka)
+		{
+			sort(&stacka, &stackb);
+			if ((checker(&stacka) == 1) && (stackb == NULL))
+				write(1, "OK\n", 3);
+			else
+				write(1, "KO\n", 3);
+		}
+	   	print_stack(&stacka);
 		print_stack(&stackb);
 	}
 	return (0);

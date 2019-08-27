@@ -1,20 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 11:38:41 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/27 10:45:43 by hde-vos          ###   ########.fr       */
+/*   Created: 2019/06/10 15:50:42 by hde-vos           #+#    #+#             */
+/*   Updated: 2019/08/27 10:32:19 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isdigit(int c)
+long	ft_atol(const char *str)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	int res;
+	int	neg;
+	int	i;
+
+	i = 0;
+	res = 0;
+	neg = 1;
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
+			|| str[i] == '\f' || str[i] == '\v' || str[i] == ' ')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			neg *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + (str[i] - '0');
+		i++;
+	}
+	return (res * neg);
 }

@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 12:04:21 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/19 11:29:07 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/27 10:34:02 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,25 +74,27 @@ void	ft_rrr(t_stack **stacka, t_stack **stackb)
 	ft_putstr("rrr\n");
 }
 
-//isDuplicate: checks for duplicates in the stacka returns 1 if duplicate is
+//isDuplicate: checks for duplicates in the stacka returns 0 if duplicate is
 //found
 
-int		isDuplicate(t_stack **stack)
+int		isDuplicate(char **arr)
 {
-	t_stack	*count;
-	t_stack	*iterator;
+	int i;
+	int j;
 
-	count = *stack;
-	iterator = count->next;
-	while (count)
+	i = 0;
+	j = 0;
+	while(arr[i])
 	{
-		while (iterator)
+		j = i + 1;
+		while (arr[j])
 		{
-			iterator = iterator->next;
-			if (count->value == iterator->value)
-				return (1);
+			if (ft_strequ(arr[i], arr[j]) || (ft_atol(arr[j]) < -2147483648) ||
+					(ft_atol(arr[j]) > 2147483647))
+				return (0);
+			j++;
 		}
-		count = count->next;
+		i++;
 	}
-	return (0);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 14:39:36 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/19 11:28:53 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/27 10:45:33 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,9 @@ t_stack	*stackfill(int n, char **args)
 
 	i = 0;
 	stack = createnode(ft_atoi(args[i]));
-	if (args)
+	if (isDuplicate(args) == 0)
+		return (NULL);
+	else if (args)
 	{
 		while (++i < n)
 		{

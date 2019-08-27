@@ -2,7 +2,7 @@ NAME=push_swap.a
 LIBNAME=libft.a
 FLAGS=-Wall -Werror -Wextra
 LIBSRC=$(shell find libft/ -name "*.c")
-SRC=*.c \ *.h
+SRC=*.c *.h
 LIBOBJ=$(shell find libft/ -name "*.o")
 OBJ=checker.o \push_swap.o \lists.o
 OPT=-c
@@ -16,7 +16,7 @@ gcc: $(NAME)
 #	@ar rc $(NAME) $(OBJ) $(LIBOBJ)
 
 push_swap.a:
-	gcc $(FLAGS) lists.c push_swap.h checker.c stackfunctions1.c stackfunctions2.c stackfunctions3.c libft/*.c
+	gcc $(FLAGS) $(SRC) libft/libft.a
 so:
 	@gcc -c -Wall -Werror -Wextra $(SRC) $(LIBSRC)
 	@gcc -shared -o libft.so -fPIC $(OBJ) $(LIBOBJ)
