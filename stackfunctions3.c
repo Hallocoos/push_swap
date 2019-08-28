@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 12:04:21 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/27 17:04:13 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/28 12:04:16 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */ #include "push_swap.h"
 #include <stdio.h>
@@ -101,19 +101,16 @@ int		isDuplicate(char **arr)
 
 	i = 0;
 	j = 0;
-	if (!check_chars(arr))
+	while(arr[i])
 	{
-		while(arr[i])
+		j = 0;
+		while (arr[j])
 		{
-			j = 0;
-			while (arr[j])
-			{
-				if (ft_strequ(arr[i], ft_itoa(ft_atoi(arr[j]))) && i != j)
-					return (0);
-				j++;
-			}
-			i++;
+			if (ft_strequ(arr[i], ft_itoa(ft_atoi(arr[j]))) && i != j)
+				return (0);
+			j++;
 		}
+		i++;
 	}
-	return (1);
+	return (!check_chars(arr));
 }

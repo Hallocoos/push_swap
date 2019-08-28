@@ -7,12 +7,13 @@ LIBOBJ=$(shell find libft/ -name "*.o")
 OBJ=checker.o \push_swap.o \lists.o
 OPT=-c
 
-all: $(NAME)
+all: checker
 
-gcc: $(NAME)
+push_swap: checker
 
-push_swap.a:
-	gcc $(FLAGS) $(SRC) $(LIBNAME) 
+checker:
+	gcc $(FLAGS) $(SRC) $(LIBNAME)
+
 so:
 	@gcc -c -Wall -Werror -Wextra $(SRC) $(LIBSRC)
 	@gcc -shared -o libft.so -fPIC $(OBJ) $(LIBOBJ)
