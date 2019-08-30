@@ -2,7 +2,9 @@ NAME=push_swap.a
 LIBNAME=libft/libft.a
 FLAGS=-Wall -Werror -Wextra
 LIBSRC=$(shell find libft/ -name "*.c")
-SRC=*.c *.h
+CHKSRC=checker.c push_swap.h stackfunctions*.c lists.c
+PSHSRC=push_swap.c push_swap.h stackmanipulation.c \
+stackfunctions*.c lists.c findfunctions.c
 LIBOBJ=$(shell find libft/ -name "*.o")
 OBJ=checker.o \push_swap.o \lists.o
 OPT=-c
@@ -11,8 +13,9 @@ all: $(NAME)
 
 gcc: $(NAME)
 
-push_swap.a:
-	gcc $(FLAGS) $(SRC) $(LIBNAME) 
+ps:
+	gcc push_swap.c push_swap.h findfunctions.c lists.c	stackfunctions*.c \
+		stackmanipulation.c libft/libft.a	
 so:
 	@gcc -c -Wall -Werror -Wextra $(SRC) $(LIBSRC)
 	@gcc -shared -o libft.so -fPIC $(OBJ) $(LIBOBJ)
