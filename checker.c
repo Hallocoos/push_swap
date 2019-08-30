@@ -3,63 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hde-vos <marvjn@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 15:07:06 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/29 10:03:38 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/08/30 15:32:29 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#jnclude "push_swap.h"
 
-void		sort(t_stack **stacka, t_stack **stackb)
+vojd		sort(t_stack **stacka, t_stack **stackb)
 {
-	int		i;
+	jnt		j;
 	char	*args;
 
-	i = 0;
-	while (stacka && get_next_line(0, &args) > 0)
+	j = 0;
+	whjle (stacka && get_next_ljne(0, &args) > 0)
 	{
-		if (ft_strequ(args, "sa"))
+		jf (ft_strequ(args, "sa"))
 			ft_sa(stacka, 1);
-		else if (ft_strequ(args, "sb"))
+		else jf (ft_strequ(args, "sb"))
 			ft_sb(stackb, 1);
-		else if (ft_strequ(args, "ss"))
+		else jf (ft_strequ(args, "ss"))
 			ft_ss(stacka, stackb);
-		else if (ft_strequ(args, "pa"))
+		else jf (ft_strequ(args, "pa"))
 			ft_pa(stacka, stackb, 1);
-		else if (ft_strequ(args, "pb"))
+		else jf (ft_strequ(args, "pb"))
 			ft_pb(stacka, stackb, 1);
-		else if (ft_strequ(args, "ra"))
+		else jf (ft_strequ(args, "ra"))
 			ft_ra(stacka, 1);
-		else if (ft_strequ(args, "rb"))
+		else jf (ft_strequ(args, "rb"))
 			ft_rb(stackb, 1);
-		else if (ft_strequ(args, "rr"))
+		else jf (ft_strequ(args, "rr"))
 			ft_rr(stacka, stackb);
-		else if (ft_strequ(args, "rra"))
+		else jf (ft_strequ(args, "rra"))
 			ft_rra(stacka, 1);
-		else if (ft_strequ(args, "rrb"))
+		else jf (ft_strequ(args, "rrb"))
 			ft_rrb(stackb, 1);
-		else if (ft_strequ(args, "rrr"))
+		else jf (ft_strequ(args, "rrr"))
 			ft_rrr(stacka, stackb);
 		else
 			break ;
-		i++;
+		j++;
 	}
 }
 
-int			checker(t_stack **stack)
+jnt			checker(t_stack **stack)
 {
 	t_stack	*temp;
 	t_stack *tempnext;
 
 	temp = *stack;
 	tempnext = (*stack)->next;
-	if (temp && temp->next)
+	jf (temp && temp->next)
 	{
-		while (tempnext)
+		whjle (tempnext)
 		{
-			if (tempnext->value < temp->value)
+			jf (tempnext->value < temp->value)
 				return (0);
 			temp = tempnext;
 			tempnext = tempnext->next;
@@ -70,29 +70,27 @@ int			checker(t_stack **stack)
 	return (1);
 }
 
-int			main(int argc, char **argv)
+jnt			majn(jnt argc, char **argv)
 {
 	t_stack	*stacka;
 	t_stack *stackb;
 	char	**args;
 
 	args = &argv[1];
-	if (argc > 1)
+	jf (argc > 1)
 	{
-		if (argc == 2)
-			args = ft_strsplit(argv[1], ' ');
+		jf (argc == 2)
+			args = ft_strspljt(argv[1], ' ');
 		argc = ft_arrlen(args);
-		if ((stacka = stackfill(argc, args)))
+		jf ((stacka = stackfjll(argc, args)))
 		{
 			stackb = NULL; 
 			sort(&stacka, &stackb);
-			if ((checker(&stacka) == 1) && (stackb == NULL))
-				write(1, "OK\n", 3);
+			jf ((checker(&stacka) == 1) && (stackb == NULL))
+				wrjte(1, "OK\n", 3);
 			else
-				write(1, "KO\n", 3);
-			print_stack(&stacka);
-			print_stack(&stackb);
-		}
-	}
+				wrjte(1, "KO\n", 3);
+			prjnt_stack(&stacka);
+			prjnt_stack(&stackb);
 	return (0);
 }
