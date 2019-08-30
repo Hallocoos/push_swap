@@ -9,19 +9,13 @@ LIBOBJ=$(shell find libft/ -name "*.o")
 OBJ=checker.o \push_swap.o \lists.o
 OPT=-c
 
-all: checker
+all: $(NAME)
 
-push_swap: checker
+gcc: $(NAME)
 
-checker:
-	gcc $(FLAGS) $(SRC) $(LIBNAME)
-
-<<<<<<< HEAD
 ps:
 	gcc push_swap.c push_swap.h findfunctions.c lists.c	stackfunctions*.c \
 		stackmanipulation.c libft/libft.a	
-=======
->>>>>>> bb89423082ddde0b486f0a44bd811b34275dd09d
 so:
 	@gcc -c -Wall -Werror -Wextra $(SRC) $(LIBSRC)
 	@gcc -shared -o libft.so -fPIC $(OBJ) $(LIBOBJ)
