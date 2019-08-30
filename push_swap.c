@@ -6,12 +6,17 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:55:35 by hde-vos           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/08/30 10:14:43 by hde-vos          ###   ########.fr       */
+=======
+/*   Updated: 2019/08/28 12:21:23 by hde-vos          ###   ########.fr       */
+>>>>>>> bb89423082ddde0b486f0a44bd811b34275dd09d
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+<<<<<<< HEAD
 int		sortstack(t_stack **stacka, t_stack **stackb)
 {
 	stacka = NULL;
@@ -46,4 +51,9 @@ int main(int argc, char **argv)
 		}
 	}
 	return (0);
+=======
+int	main(void)
+{
+	
+>>>>>>> bb89423082ddde0b486f0a44bd811b34275dd09d
 }
