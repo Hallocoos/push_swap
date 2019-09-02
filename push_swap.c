@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:55:35 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/02 14:16:11 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/02 15:56:23 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,17 @@ void	initialize(int argc, char **args)
 	}
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	if (argc > 1)
 	{
+		argv = &argv[1];
 		if (argc == 2)
 			argv = ft_strsplit(argv[1], ' ');
+		ft_putnbr(ft_arrlen(argv));
 		argc = ft_arrlen(argv);
-		initialize(argc, argv);
+//		initialize(argc, argv);
+//		write(1, "D", 1);
 	}
 	return (0);
 }
