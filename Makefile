@@ -16,6 +16,11 @@ gcc: $(NAME)
 ps:
 	gcc push_swap.c push_swap.h findfunctions.c lists.c	stackfunctions*.c \
 		stackmanipulation.c libft/libft.a	
+
+checker:
+	gcc checker.c push_swap.h lists.c stackfunctions*.c libft/libft.a \
+		stackmanipulation.c
+
 so:
 	@gcc -c -Wall -Werror -Wextra $(SRC) $(LIBSRC)
 	@gcc -shared -o libft.so -fPIC $(OBJ) $(LIBOBJ)

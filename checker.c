@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 15:07:06 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/30 17:00:36 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/02 14:29:23 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ int			main(int argc, char **argv)
 			else
 				write(1, "KO\n", 3);
 			print_stack(&stacka);
-			print_stack(&stackb);
+		}
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:55:35 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/30 13:29:57 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/02 14:16:11 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,33 @@
 
 int		sortstack(t_stack **stacka, t_stack **stackb)
 {
+	write(1, "C\n", 1);
 	stacka = NULL;
 	stackb = NULL;
 	return (0);
 }
 
-int main(int argc, char **argv)
+void	initialize(int argc, char **args)
 {
 	t_stack	*stacka;
 	t_stack *stackb;
-	t_stack *temp;
-	char	**args;
 
-	args = &argv[1];
+	if ((stacka = stackfill(argc, &args[1])))
+	{
+		stackb = NULL;
+		sortstack(&stacka, &stackb);
+		print_stack(&stacka);
+	}
+}
+
+int main(int argc, char **argv)
+{
 	if (argc > 1)
 	{
 		if (argc == 2)
-			args = ft_strsplit(argv[1], ' ');
-		argc = ft_arrlen(args);
-		if ((stacka = stackfill(argc, args)))
-		{
-			print_stack(&temp);
-			temp = stacka;
-			while (temp)
-			{
-				ft_putnbr(temp->weight);
-				temp = temp->next;
-			}
-			stackb = NULL;
-			sortstack(&stacka, &stackb);
-		}
+			argv = ft_strsplit(argv[1], ' ');
+		argc = ft_arrlen(argv);
+		initialize(argc, argv);
 	}
 	return (0);
 }
