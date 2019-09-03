@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:55:35 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/03 16:20:01 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/03 16:50:40 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ int		main(int argc, char **argv)
 {
 	char	**args;
 
+	args = argv + 1;
 	if (argc > 1)
 	{
 		argc = argc - 1;
-		args = argv + 1;
 		if (argc == 1 && ft_strchr(args[0], ' ') != NULL)
 		{
 			args = ft_strsplit(args[0], ' ');
@@ -65,11 +65,7 @@ int		main(int argc, char **argv)
 			initialize(argc, args);
 	}
 	while (*args)
-	{
-		free(*args);
-		args++;
-	}
-	args = NULL;
+		free(*args++);
 	while (1);
 	return (0);
-	}
+}
