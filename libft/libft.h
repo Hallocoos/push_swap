@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 11:38:14 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/27 11:44:35 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/03 15:22:04 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_wordcount(char const *str, char delim, int index);
 int					ft_wordlen(char const *s, char c, int k);
-int					ft_len(int n);
+int					ft_intlen(int n);
 char				*ft_convert(int n, char *str, int i);
 int					ft_isupper(int c);
 char				*ft_strndup(const char *s, size_t n);

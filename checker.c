@@ -6,45 +6,48 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 15:07:06 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/02 15:01:35 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/03 16:16:38 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void		sort(t_stack **stacka, t_stack **stackb)
+#include <stdio.h>
+void		sort(t_stack **stacka, t_stack **stackb, char *args)
 {
-	int		i;
-	char	*args;
+	if (ft_strequ(args, "sa"))
+		ft_sa(stacka, 0);
+	else if (ft_strequ(args, "sb"))
+		ft_sb(stackb, 0);
+	else if (ft_strequ(args, "ss"))
+		ft_ss(stacka, stackb);
+	else if (ft_strequ(args, "pa"))
+		ft_pa(stacka, stackb, 0);
+	else if (ft_strequ(args, "pb"))
+		ft_pb(stacka, stackb, 0);
+	else if (ft_strequ(args, "ra"))
+		ft_ra(stacka, 0);
+	else if (ft_strequ(args, "rb"))
+		ft_rb(stackb, 0);
+	else if (ft_strequ(args, "rr"))
+		ft_rr(stacka, stackb);
+	else if (ft_strequ(args, "rra"))
+		ft_rra(stacka, 0);
+	else if (ft_strequ(args, "rrb"))
+		ft_rrb(stackb, 0);
+	else if (ft_strequ(args, "rrr"))
+		ft_rrr(stacka, stackb);
+}
 
-	i = 0;
-	while (stacka && get_next_line(0, &args) > 0)
+void		readline(t_stack **stacka, t_stack **stackb)
+{
+	char 	*args;
+
+	args = malloc(1);
+	while (get_next_line(0, &args))
 	{
-		if (ft_strequ(args, "sa"))
-			ft_sa(stacka, 1);
-		else if (ft_strequ(args, "sb"))
-			ft_sb(stackb, 1);
-		else if (ft_strequ(args, "ss"))
-			ft_ss(stacka, stackb);
-		else if (ft_strequ(args, "pa"))
-			ft_pa(stacka, stackb, 1);
-		else if (ft_strequ(args, "pb"))
-			ft_pb(stacka, stackb, 1);
-		else if (ft_strequ(args, "ra"))
-			ft_ra(stacka, 1);
-		else if (ft_strequ(args, "rb"))
-			ft_rb(stackb, 1);
-		else if (ft_strequ(args, "rr"))
-			ft_rr(stacka, stackb);
-		else if (ft_strequ(args, "rra"))
-			ft_rra(stacka, 1);
-		else if (ft_strequ(args, "rrb"))
-			ft_rrb(stackb, 1);
-		else if (ft_strequ(args, "rrr"))
-			ft_rrr(stacka, stackb);
-		else
-			break ;
-		i++;
+		sort(stacka, stackb, args);
+		//ft_putstr(args);
+		free(args);
 	}
 }
 
@@ -85,7 +88,7 @@ int			main(int argc, char **argv)
 		if ((stacka = stackfill(argc, args)))
 		{
 			stackb = NULL; 
-			sort(&stacka, &stackb);
+			readline(&stacka, &stackb);
 			if ((checker(&stacka) == 1) && (stackb == NULL))
 				write(1, "OK\n", 3);
 			else

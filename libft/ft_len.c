@@ -6,13 +6,13 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 15:48:24 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/06/10 15:59:28 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/03 15:21:54 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_len(int n)
+int	ft_intlen(int n)
 {
 	int	len;
 	int	i;

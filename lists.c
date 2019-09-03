@@ -1,12 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
+/* ************************************************************************** */ /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   lists.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 14:39:36 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/02 15:05:24 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/03 12:44:05 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +17,14 @@ t_stack	*createnode(int n)
 	
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (new)
-	{ new->value = n;
+	{
+		new->value = n;
 		new->weight = 0;
 		new->next = NULL;
 		new->prev = NULL;
 	}
 	return (new);
 }
-
 void	add_head(t_stack *new, t_stack **stack)
 {
 	t_stack	*temp;
@@ -85,10 +84,11 @@ t_stack	*stackfill(int n, char **args)
 	int		i;
 
 	i = 0;
+	new = NULL;
 	stack = createnode(ft_atoi(args[i]));
 	if (isDuplicate(args) == 0)
 		return (NULL);
-	else if (args)
+	else if (args[i])
 	{
 		while (++i < n)
 		{

@@ -6,14 +6,11 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:28:54 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/05 15:36:15 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/03 13:33:23 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-//ra :rotate a- shift up all elements of stackaby 1. The first element becomesthe 
-//last one.
 
 void	ft_ra(t_stack **stacka, int n)
 {
@@ -38,9 +35,6 @@ void	ft_ra(t_stack **stacka, int n)
 	}
 }
 
-//rb :rotate b- shift up all elements of stackbby 1. The first element
-//becomes the last one.
-
 void	ft_rb(t_stack **stackb, int n)
 {
 	t_stack	*first;
@@ -63,8 +57,6 @@ void	ft_rb(t_stack **stackb, int n)
 			ft_putstr("rb\n");
 	}
 }
-
-//rr :ra and rb at the same time.
 
 void	ft_rr(t_stack **stacka, t_stack **stackb)
 {

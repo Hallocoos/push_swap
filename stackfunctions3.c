@@ -6,13 +6,10 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 12:04:21 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/02 14:16:40 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/03 15:15:29 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */ #include "push_swap.h"
 #include <stdio.h>
-
-//rra :reverse rotate a- shift down all elements of stacka by 1. The last
-//element becomes the first one.
 
 void	ft_rra(t_stack **stacka, int n)
 {
@@ -35,9 +32,6 @@ void	ft_rra(t_stack **stacka, int n)
 			ft_putstr("rra\n");
 	}
 }
-
-//rrb :reverse rotate b- shift down all elements of stackb by 1. The last 
-//element becomes the first one.
 
 void	ft_rrb(t_stack **stackb, int n)
 {
@@ -62,17 +56,12 @@ void	ft_rrb(t_stack **stackb, int n)
 	}
 }
 
-//rrr :rra and rrb at the same time.
-
 void	ft_rrr(t_stack **stacka, t_stack **stackb)
 {
 	ft_rra(stacka, 0);
 	ft_rrb(stackb, 0);
 	ft_putstr("rrr\n");
 }
-
-//check_chars: looks for alphabetic characters inside arguments. If found,
-//return 0, else return 1;
 
 int		check_chars(char **arr)
 {
@@ -91,16 +80,13 @@ int		check_chars(char **arr)
 	return (0);
 }
 
-//isDuplicate: checks for duplicates in the stacka returns 0 if duplicate is
-//found
-
 int		isDuplicate(char **arr)
 {
 	int i;
 	int j;
+	char *n;
 
 	i = 0;
-	j = 0;
 	if (check_chars(arr))
 		return (0);
 	else
@@ -108,10 +94,15 @@ int		isDuplicate(char **arr)
 		while(arr[i])
 		{
 			j = 0;
-			while (arr[j])
+			while (arr[i][j])
 			{
-				if (ft_strequ(arr[i], ft_itoa(ft_atoi(arr[j]))) && i != j)
+				n = ft_itoa(ft_atoi(arr[j]));
+				if (ft_strequ(arr[i], n) && i != j)
+				{
+					free(n);
 					return (0);
+				}
+				free(n);
 				j++;
 			}
 			i++;

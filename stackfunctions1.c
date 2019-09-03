@@ -6,15 +6,12 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:32:20 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/08/27 09:51:42 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/03 13:33:11 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-
-//sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if
-//there is only one or no elements).
 
 void	ft_sa(t_stack **head, int n) {
 	t_stack	*first;
@@ -35,9 +32,6 @@ void	ft_sa(t_stack **head, int n) {
 			ft_putstr("sa\n");
 	}
 }
-
-//sb : swap b - swap the first 2 elements at the top of stack b. Do nothing if
-//there is only one or no elements).
 
 void	ft_sb(t_stack **head, int n)
 {
@@ -60,17 +54,12 @@ void	ft_sb(t_stack **head, int n)
 	}
 }
 
-//ss : sa and sb at the same time.
-
 void	ft_ss(t_stack **stacka, t_stack **stackb)
 {
 	ft_sa(stacka, 0);
 	ft_sb(stackb, 0);
 	ft_putstr("ss\n");
 }
-
-//pa : push a - take the first element at the top of b and put it at the top of
-//a. Do nothing if b is empty.
 
 void	ft_pa(t_stack **stacka, t_stack **stackb, int n)
 {
@@ -91,9 +80,6 @@ void	ft_pa(t_stack **stacka, t_stack **stackb, int n)
 			ft_putstr("pa\n");
 	}
 }
-
-//pb : push b - take the first element at the top of a and put it at the top of
-//b. Do nothing if a is empty.
 
 void	ft_pb(t_stack **stacka, t_stack **stackb, int n)
 {
