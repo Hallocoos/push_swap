@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:55:35 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/04 12:45:40 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/04 13:36:25 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ int		main(int argc, char **argv)
 		else
 			initialize(argc, args);
 	}
+	while (1);
 	return (0);
 }
