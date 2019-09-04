@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 12:04:21 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/03 15:15:29 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/04 14:17:44 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */ #include "push_swap.h"
 #include <stdio.h>
@@ -24,7 +24,8 @@ void	ft_rra(t_stack **stacka, int n)
 		while (last->next)
 			last = last->next;
 		temp = last->prev;
-		first->prev = last; last->next = first;
+		first->prev = last;
+		last->next = first;
 		temp->next = NULL;
 		last->prev = NULL;
 		*stacka = last;

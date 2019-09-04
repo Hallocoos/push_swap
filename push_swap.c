@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:55:35 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/04 13:36:25 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/04 14:11:33 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int		sortstack(t_stack **stacka, t_stack **stackb)
 	stackb = NULL;
 	len = stacksize(stacka);
 	if (len == 2)
-		sort_two(stacka);	
+		sort_two(stacka);
+	else if (len == 3)
+		sort_three(stacka);
 	return (0);
 }
 
@@ -28,14 +30,18 @@ void	initialize(int argc, char **args)
 	t_stack	*stacka;
 	t_stack *stackb;
 
+	stackb = NULL;
 	if ((stacka = stackfill(argc, args)))
 	{
-		stackb = NULL;
 		sortstack(&stacka, &stackb);
 		print_stack(&stacka);
 	}
-	freestack(&stacka);
-	freestack(&stackb);
+/*
+	if (stacka)
+		freestack(&stacka);
+	if (stackb)
+		freestack(&stackb);
+*/
 }
 
 
@@ -56,6 +62,5 @@ int		main(int argc, char **argv)
 		else
 			initialize(argc, args);
 	}
-	while (1);
 	return (0);
 }

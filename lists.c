@@ -62,15 +62,23 @@ void	add_tail(t_stack *new, t_stack **stack)
 void	print_stack(t_stack **stack)
 {
 	t_stack	*new;
+	t_stack *prev;
 
 	new = *stack;
+	prev = NULL;
 	if (new)
 	{
 		ft_putstr("--- Stack ---\n");
 		while (new)
 		{
+			if (new == prev)
+			{
+				ft_putstr("Cycle in linked list\n");
+				break ;
+			}
 			ft_putnbr(new->value);
 			ft_putendl("");
+			prev = new;
 			new = new->next;
 		}
 		ft_putstr("-------------\n");

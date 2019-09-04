@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:59:24 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/04 12:07:47 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/04 13:46:16 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ void	set_weight(t_stack **stack);
 void	freestack(t_stack **stack);
 int		stacksize(t_stack **stack);
 void	sort_two(t_stack **stack);
+void	sort_three(t_stack **stack);
 
 # endif

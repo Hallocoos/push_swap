@@ -6,49 +6,64 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:32:20 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/03 13:33:11 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/04 14:20:48 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	ft_sa(t_stack **head, int n) {
-	t_stack	*first;
+//void	ft_sa(t_stack **stack, int n)
+//{
+//	t_stack	*first;
+//	t_stack *second;
+//	
+//	if (*stack && stacksize(stack) > 1)
+//	{	
+//		first = *stack;
+//		second = (*stack)->next;
+//		first->prev = second;
+//		first->next = second->next;
+//		second->prev = NULL;
+//		second->next = first;
+//		*stack = second;
+//		if (n == 1)
+//			ft_putstr("sa\n");
+//	}
+//}
+
+void	ft_sa(t_stack **stacka, int i)
+{
+	t_stack *first;
 	t_stack *second;
-	t_stack *third;
-	
-	first = *head;
-	second = (*head)->next;
-	if (first && second)
-	{	
-		third = second->next;
-		first->next = third;
-		first->prev = second;
-		second->next = first;
-		second->prev = NULL;
-		*head = second;
-		if (n == 1)
-			ft_putstr("sa\n");
-	}
+
+	if (!(*stacka) || (stack_size(stacka) < 2))
+		return ;
+	first = (*stacka);
+	second = (*stacka)->next;
+	first->prev = second;
+	first->next = second->next;
+	second->prev = NULL;
+	second->next = first;
+	*stacka = second;
+	if (i == 1 || i == 4 || i == 5 || i == 7)
+		write(1, "sa\n", 3);
 }
 
-void	ft_sb(t_stack **head, int n)
+void	ft_sb(t_stack **stack, int n)
 {
 	t_stack	*first;
 	t_stack *second;
-	t_stack *third;
 	
-	first = *head;
-	second = (*head)->next;
-	if (first && second)
+	if (*stack && stacksize(stack) > 1)
 	{	
-		third = second->next;
-		first->next = third;
+		first = *stack;
+		second = (*stack)->next;
 		first->prev = second;
-		second->next = first;
+		first->next = second->next;
 		second->prev = NULL;
-		*head = second;
+		second->next = first;
+		*stack = second;
 		if (n == 1)
 			ft_putstr("sb\n");
 	}
