@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:32:20 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/04 14:20:48 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/04 16:39:25 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_sa(t_stack **stacka, int i)
 	t_stack *first;
 	t_stack *second;
 
-	if (!(*stacka) || (stack_size(stacka) < 2))
+	if (!(*stacka) || (stacksize(stacka) < 2))
 		return ;
 	first = (*stacka);
 	second = (*stacka)->next;
