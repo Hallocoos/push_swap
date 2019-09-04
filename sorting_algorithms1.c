@@ -1,54 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stackmanipulation.c                                :+:      :+:    :+:   */
+/*   sorting_algorithms.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/29 13:00:22 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/04 12:05:15 by hde-vos          ###   ########.fr       */
+/*   Created: 2019/09/04 11:59:11 by hde-vos           #+#    #+#             */
+/*   Updated: 2019/09/04 12:11:55 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_weight(t_stack **stack)
+void	sort_two(t_stack **stack)
 {
-	int		i;
-	t_stack	*temp;
-
-	i = 0;
-	temp = *stack;
-	while ((temp)->next)
-	{
-		temp->weight = i++;
-		temp = temp->next;
-	}
+	if ((*stack)->value > (*stack)->next->value)
+		ft_sa(stack, 1);
 }
 
-void	freestack(t_stack **stack)
+void	sort_three(t_stack **stack)
 {
-	t_stack *next;
+	t_stack *one;
+	t_stack *two;
+	t_stack *three;
 
-	while (*stack)
-	{
-		next = (*stack)->next;
-		free(*stack);
-		*stack = next;
-	}
-}
+	one = stack;
+	two = one->next;
+	three = two->next;
 
-int		stacksize(t_stack **stack)
-{
-	int		i;
-	t_stack	*temp;
-
-	temp = *stack;
-	i = 0;
-	while (temp)
-	{
-		temp = temp->next;
-		i++;
-	}
-	return (i);
 }

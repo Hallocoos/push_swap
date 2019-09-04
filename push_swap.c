@@ -6,28 +6,20 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:55:35 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/03 16:50:40 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/04 12:45:40 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	freestack(t_stack **stack)
-{
-	t_stack *next;
-
-	while (*stack)
-	{
-		next = (*stack)->next;
-		free(*stack);
-		*stack = next;
-	}
-}
-
 int		sortstack(t_stack **stacka, t_stack **stackb)
 {
-	stacka = NULL;
+	int		len;
+
 	stackb = NULL;
+	len = stacksize(stacka);
+	if (len == 2)
+		sort_two(stacka);	
 	return (0);
 }
 
@@ -64,8 +56,5 @@ int		main(int argc, char **argv)
 		else
 			initialize(argc, args);
 	}
-	while (*args)
-		free(*args++);
-	while (1);
 	return (0);
 }

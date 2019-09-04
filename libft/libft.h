@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 11:38:14 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/03 15:22:04 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/04 11:45:58 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ int					get_next_line(const int fd, char **line);
 int					ft_arrlen(char **array);
 long				ft_atol(const char *str);
 int					ft_isnumber(char *str);
+void				ft_freearrays(char **array);
 
 #endif
