@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 13:00:22 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/04 13:38:31 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/09 15:51:55 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,18 @@ int		stacksize(t_stack **stack)
 		i++;
 	}
 	return (i);
+}
+
+int		is_smallest(t_stack *stack)
+{
+	int		i;
+
+	i = stack->value;
+	while (stack->next)
+	{
+		if (i > stack->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

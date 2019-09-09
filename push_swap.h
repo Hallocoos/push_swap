@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:59:24 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/04 13:46:16 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/09 14:12:57 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	lstdel(t_stack **alst, void (*del)(void *, size_t));
 void	lstadd(t_stack **alst, t_stack *new);
 t_stack	*createnode(int n);
 void	add_tail(t_stack *new, t_stack **stack);
+void	add_head(t_stack **stack, t_stack *node);
 void	print_stack(t_stack **stack);
 t_stack	*stackfill(int n, char **args);
 void	ft_sa(t_stack **stacka, int n);
@@ -49,5 +50,8 @@ void	freestack(t_stack **stack);
 int		stacksize(t_stack **stack);
 void	sort_two(t_stack **stack);
 void	sort_three(t_stack **stack);
+void	sort_five(t_stack **stacka, t_stack **stackb);
+void	sort_ten(t_stack **stacka, t_stack **stackb);
+int		is_smallest(t_stack *stack);
 
 # endif

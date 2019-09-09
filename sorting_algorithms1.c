@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 11:59:11 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/04 14:07:55 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/09 16:13:51 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 void	sort_two(t_stack **stack)
 {
 	if ((*stack)->value > (*stack)->next->value)
+	{
+		//write(1, "sa", 2);
 		ft_sa(stack, 1);
+	}
 }
 
 void	sort_three(t_stack **stack)
@@ -24,8 +27,8 @@ void	sort_three(t_stack **stack)
 	t_stack *two;
 	t_stack *three;
 
+	sort_two(stack);
 	one = *stack;
-	sort_two(&one);
 	two = one->next;
 	three = two->next;
 	if (three->value < one->value)
@@ -33,7 +36,25 @@ void	sort_three(t_stack **stack)
 	else if (three->value > one->value && three->value < two->value)
 	{
 		ft_rra(stack, 1);
-		print_stack(stack);
+	//	write(1, "rra", 3);
 		ft_sa(stack, 1);
+	//	write(1, "sa", 2);
 	}
+}
+
+void	sort_five(t_stack **stacka, t_stack **stackb)
+{
+	if (stacksize(stacka) == 5)
+	{
+		while (is_smallest(*stacka) != 1)
+			ft_ra(stacka, 1);
+		ft_pb(stacka, stackb, 1);
+	}
+	while (is_smallest(*stacka) != 1)
+		ft_ra(stacka, 1);
+	ft_pb(stacka, stackb, 1);
+
+	sort_three(stacka);
+	while (stacksize(stackb) != 0)
+		ft_pa(stacka, stackb, 1);
 }

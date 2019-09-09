@@ -25,23 +25,22 @@ t_stack	*createnode(int n)
 	}
 	return (new);
 }
-void	add_head(t_stack *new, t_stack **stack)
+void	add_head(t_stack **stack, t_stack *node)
 {
 	t_stack	*temp;
 
 	temp = *stack;
 	if (temp)
 	{
-		temp->prev = new;
-		new->next = *stack;
-		new->prev = NULL;
-		*stack = new;
+		node->prev = NULL;
+		node->next = *stack;
+		*stack = node;
 	}
-	else 
+	else
 	{
-		new->next = NULL;
-		new->prev = NULL;
-		*stack = new;
+		node->next = NULL;
+		node->prev = NULL;
+		*stack = node;
 	}
 }
 
@@ -66,7 +65,7 @@ void	print_stack(t_stack **stack)
 
 	new = *stack;
 	prev = NULL;
-	if (new)
+	if (new && stack)
 	{
 		ft_putstr("--- Stack ---\n");
 		while (new)

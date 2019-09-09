@@ -6,7 +6,7 @@ LIBOBJ=$(shell find libft/ -name "*.o")
 OBJ=checker.o \push_swap.o \lists.o
 OPT=-c
 PSHSRC=push_swap.c findfunctions.c lists.c stackfunctions*.c \
-stackmanipulation.c libft/libft.a sorting_algorithms*.c
+stackmanipulation.c libft/libft.a sorting_algorithms1.c
 CHKSRC=checker.c lists.c stackfunctions*.c libft/libft.a \
 stackmanipulation.c
 

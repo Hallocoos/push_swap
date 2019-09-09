@@ -6,55 +6,61 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 12:04:21 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/04 14:17:44 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/09 16:13:42 by hde-vos          ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */ #include "push_swap.h"
+/* ************************************************************************** */
+
+#include "push_swap.h"
 #include <stdio.h>
 
-void	ft_rra(t_stack **stacka, int n)
+void	ft_rra(t_stack **stacka, int i)
 {
-	t_stack *first;
-	t_stack *last;
-	t_stack *temp;
+	t_stack	*last;
+	t_stack	*second_last;
 
-	first = *stacka;
+	if (!(*stacka) || (stacksize(stacka) < 2))
+		return ;
 	last = *stacka;
-	if (first && last)
+	second_last = NULL;
+	while (last->next != NULL)
 	{
-		while (last->next)
-			last = last->next;
-		temp = last->prev;
-		first->prev = last;
-		last->next = first;
-		temp->next = NULL;
-		last->prev = NULL;
-		*stacka = last;
-		if (n == 1)
-			ft_putstr("rra\n");
+		second_last = last;
+		last = last->next;
 	}
+	second_last->next = NULL;
+	last->prev = NULL;
+	last->next = *stacka;
+	second_last->prev = *stacka;
+	(*stacka)->prev = last;
+	(*stacka)->next = second_last;
+	*stacka = last;
+	if (i == 1)
+		write(1, "rra\n", 4);
 }
 
-void	ft_rrb(t_stack **stackb, int n)
+void	ft_rrb(t_stack **stackb, int i)
 {
-	t_stack *first;
-	t_stack *last;
-	t_stack *temp;
+	t_stack	*last;
+	t_stack	*second_last;
 
-	first = *stackb;
+	if (!(*stackb) || (stacksize(stackb) < 2))
+		return ;
 	last = *stackb;
-	if (first && last)
+	second_last = NULL;
+	while (last->next != NULL)
 	{
-		while (last->next)
-			last = last->next;
-		temp = last->prev;
-		first->prev = last;
-		last->next = first;
-		temp->next = NULL;
-		last->prev = NULL;
-		*stackb = last;
-		if (n == 1)
-			ft_putstr("rrb\n");
+		second_last = last;
+		last = last->next;
 	}
+	second_last->next = NULL;
+	last->prev = NULL;
+	last->next = *stackb;
+	second_last->prev = *stackb;
+	(*stackb)->prev = last;
+	(*stackb)->next = second_last;
+	*stackb = last;
+	if (i == 1)
+		write(1, "rrb\n", 4);
 }
 
 void	ft_rrr(t_stack **stacka, t_stack **stackb)
