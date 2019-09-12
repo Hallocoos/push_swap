@@ -76,7 +76,9 @@ void	print_stack(t_stack **stack)
 				break ;
 			}
 			ft_putnbr(new->value);
-			ft_putendl("");
+			ft_putstr(" [");
+			ft_putnbr(new->weight);
+			ft_putstr("]\n");
 			prev = new;
 			new = new->next;
 		}
@@ -94,7 +96,9 @@ t_stack	*stackfill(int n, char **args)
 	new = NULL;
 	stack = createnode(ft_atoi(args[i]));
 	if (isDuplicate(args) == 0)
+	{
 		return (NULL);
+	}
 	else if (args[i])
 	{
 		while (++i < n)
@@ -103,5 +107,6 @@ t_stack	*stackfill(int n, char **args)
 			add_tail(new, &stack);
 		}
 	}
+	print_stack(&stack);
 	return (stack);
 }

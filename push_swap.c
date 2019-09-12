@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:55:35 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/09 17:04:37 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/12 12:34:14 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	initialize(int argc, char **args)
 
 	if ((stacka = stackfill(argc, args)))
 	{
+		set_weight(stacka);
 		print_stack(&stacka);
 		sortstack(&stacka, &stackb);
 		print_stack(&stacka);

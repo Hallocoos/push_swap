@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:59:24 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/09 14:12:57 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/12 10:45:18 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_rra(t_stack **stacka, int n);
 void	ft_rrb(t_stack **stackb, int n);
 void	ft_rrr(t_stack **stacka, t_stack **stackb);
 int		isDuplicate(char **arr);
-void	set_weight(t_stack **stack);
+void	set_weight(t_stack *stack);
 void	freestack(t_stack **stack);
 int		stacksize(t_stack **stack);
 void	sort_two(t_stack **stack);

@@ -6,23 +6,31 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 13:00:22 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/09 15:51:55 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/12 12:37:31 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_weight(t_stack **stack)
+void	set_weight(t_stack *stack)
 {
 	int		i;
 	t_stack	*temp;
+	t_stack	*head;
 
-	i = 0;
-	temp = *stack;
-	while ((temp)->next)
+	head = stack;
+	i = stacksize(&head);
+	while (stack)
 	{
-		temp->weight = i++;
-		temp = temp->next;
+		temp = head;
+		stack->weight = i;
+		while (temp)
+		{
+			if (temp->value > stack->value && temp->value != stack->value)
+				stack->weight--;
+			temp = temp->next;
+		}
+		stack = stack->next;
 	}
 }
 
@@ -56,13 +64,15 @@ int		stacksize(t_stack **stack)
 int		is_smallest(t_stack *stack)
 {
 	int		i;
+	t_stack	*temp;
 
+	temp = stack;
 	i = stack->value;
-	while (stack->next)
+	while (temp->next)
 	{
-		if (i > stack->value)
+		if (i > temp->value)
 			return (0);
-		stack = stack->next;
+		temp = temp->next;
 	}
 	return (1);
 }
