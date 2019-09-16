@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 13:00:22 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/12 12:37:31 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/16 11:34:44 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,8 @@ int		is_smallest(t_stack *stack)
 
 	temp = stack;
 	i = stack->value;
-	while (temp->next)
+	while (temp->weight != 1)
 	{
-		if (i > temp->value)
-			return (0);
 		temp = temp->next;
 	}
 	return (1);

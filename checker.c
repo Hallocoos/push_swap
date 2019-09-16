@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 15:07:06 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/04 11:52:55 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/16 11:13:53 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,5 @@ int			main(int argc, char **argv)
 	}
 	freestack(stacka);
 	freestack(stackb);
-	while (1);
 	return (0);
 }

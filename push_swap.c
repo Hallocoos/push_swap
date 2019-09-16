@@ -6,25 +6,28 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 13:55:35 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/12 12:34:14 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/16 12:50:42 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		sortstack(t_stack **stacka, t_stack **stackb)
+void	sortstack(t_stack **stacka, t_stack **stackb)
 {
 	int		len;
 
-	*stackb = NULL;
 	len = stacksize(stacka);
-	if (len == 2)
-		sort_two(stacka);
-	else if (len == 3)
-		sort_three(stacka);
-	else if (len > 3 && len < 6)
-		sort_five(stacka, stackb);
-	return (0);
+	if (len > 1)
+	{
+		if (len == 2)
+			sort_two(stacka);
+		else if (len == 3)
+			sort_three(stacka);
+		else if (len > 3 && len < 6)
+			sort_five(stacka, stackb);
+		else if (len > 5)
+			sort_all(stacka, stackb);
+	}
 }
 
 void	initialize(int argc, char **args)
@@ -32,9 +35,11 @@ void	initialize(int argc, char **args)
 	t_stack	*stacka;
 	t_stack *stackb;
 
+	stackb = NULL;
 	if ((stacka = stackfill(argc, args)))
 	{
 		set_weight(stacka);
+		movecounta(stacka, stackb);
 		print_stack(&stacka);
 		sortstack(&stacka, &stackb);
 		print_stack(&stacka);

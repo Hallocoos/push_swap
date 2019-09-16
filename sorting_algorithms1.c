@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 11:59:11 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/12 12:33:22 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/16 11:42:19 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,24 @@ void	sort_five(t_stack **stacka, t_stack **stackb)
 {
 	if (stacksize(stacka) == 5)
 	{
-		while (is_smallest(*stacka) != 1)
+		while ((*stacka)->weight != 1)
 			ft_ra(stacka, 1);
 		ft_pb(stacka, stackb, 1);
+		set_weight(*stacka);
 	}
-	while (is_smallest(*stacka) != 1)
+	while ((*stacka)->weight != 1)
 		ft_ra(stacka, 1);
 	ft_pb(stacka, stackb, 1);
+	set_weight(*stacka);
 
 	sort_three(stacka);
 	while (stacksize(stackb) != 0)
 		ft_pa(stacka, stackb, 1);
+	set_weight(*stacka);
+}
+
+void	sort_all(t_stack **stacka, t_stack **stackb)
+{
+	stacka = NULL;
+	stackb = NULL;
 }

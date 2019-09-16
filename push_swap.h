@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:59:24 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/12 10:45:18 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/16 11:55:34 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef	struct		s_stack
 	int				weight;
 	struct s_stack	*next;
 	struct s_stack	*prev;
+	int				movecounta;
+	int				movecountb;
 }					t_stack;
 
 t_stack	*lstnew(void const *content, size_t content_size);
@@ -52,6 +54,9 @@ void	sort_two(t_stack **stack);
 void	sort_three(t_stack **stack);
 void	sort_five(t_stack **stacka, t_stack **stackb);
 void	sort_ten(t_stack **stacka, t_stack **stackb);
+void	sort_all(t_stack **stacka, t_stack **stackb);
 int		is_smallest(t_stack *stack);
+void	movecounta(t_stack *stacka, t_stack *stackb);
+void	movecountb(t_stack *stacka, t_stack *stackb);
 
 # endif

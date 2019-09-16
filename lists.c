@@ -78,7 +78,10 @@ void	print_stack(t_stack **stack)
 			ft_putnbr(new->value);
 			ft_putstr(" [");
 			ft_putnbr(new->weight);
-			ft_putstr("]\n");
+			ft_putstr("]");
+			ft_putstr(" {");
+			ft_putnbr(new->movecounta);
+			ft_putstr("}\n");
 			prev = new;
 			new = new->next;
 		}
