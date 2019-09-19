@@ -6,7 +6,7 @@
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 11:59:11 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/16 11:42:19 by hde-vos          ###   ########.fr       */
+/*   Updated: 2019/09/19 14:11:53 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sort_two(t_stack **stack)
 {
 	if ((*stack)->value > (*stack)->next->value)
 	{
-		//write(1, "sa", 2);
+		write(1, "sa", 2);
 		ft_sa(stack, 1);
 	}
 }
@@ -36,9 +36,9 @@ void	sort_three(t_stack **stack)
 	else if (three->value > one->value && three->value < two->value)
 	{
 		ft_rra(stack, 1);
-	//	write(1, "rra", 3);
+		write(1, "rra", 3);
 		ft_sa(stack, 1);
-	//	write(1, "sa", 2);
+		write(1, "sa", 2);
 	}
 }
 
