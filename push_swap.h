@@ -55,7 +55,6 @@ void	sort_five(t_stack **stacka, t_stack **stackb);
 void	sort_ten(t_stack **stacka, t_stack **stackb);
 void	sort_all(t_stack **stacka, t_stack **stackb);
 int		is_smallest(t_stack *stack);
-void	movecounta(t_stack *stacka, t_stack *stackb);
-void	movecountb(t_stack *stacka, t_stack *stackb);
+void	movecount(t_stack *stack);
 
 # endif

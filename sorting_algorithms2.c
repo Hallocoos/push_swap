@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+//#include "push_swap.c"
 
-void	movecount(t_stack *stack)
+/*void	movecount(t_stack *stack)
 {
 	t_stacka *temp;
 	int		i;
@@ -26,4 +26,4 @@ void	movecount(t_stack *stack)
 	if (i > stacksize(stacka)/2)
 		i = (stacksize(stacka) - i) * 1;
 	return (i);
-}
+}*/

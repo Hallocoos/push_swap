@@ -62,8 +62,8 @@ void	sort_five(t_stack **stacka, t_stack **stackb)
 	set_weight(*stacka);
 }
 
-void	sort_all(t_stack **stacka, t_stack **stackb)
+/*void	sort_all(t_stack **stacka, t_stack **stackb)
 {
 	stacka = NULL;
 	stackb = NULL;
-}
+}*/
