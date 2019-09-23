@@ -22,8 +22,7 @@ typedef	struct		s_stack
 	int				weight;
 	struct s_stack	*next;
 	struct s_stack	*prev;
-	int				movecounta;
-	int				movecountb;
+	int				movecount;
 }					t_stack;
 
 t_stack	*lstnew(void const *content, size_t content_size);

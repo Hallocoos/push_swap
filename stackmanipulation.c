@@ -63,14 +63,10 @@ int		stacksize(t_stack **stack)
 
 int		is_smallest(t_stack *stack)
 {
-	int		i;
 	t_stack	*temp;
 
 	temp = stack;
-	i = stack->value;
 	while (temp->weight != 1)
-	{
 		temp = temp->next;
-	}
 	return (1);
 }

@@ -12,23 +12,18 @@
 
 #include "push_swap.c"
 
-void	movecounta(t_stack *stacka, t_stack *stackb)
+void	movecount(t_stack *stack)
 {
-	int		len;
+	t_stacka *temp;
 	int		i;
-	t_stack	*temp;
-	t_stack *tempb;
 
-	temp = stacka;
-	tempb = stackb;
-	len = stacksize(&temp);
-	i = 0;
-	while (temp)
+	temp = stack;
+	while (!(temp->value > stack->value && temp->value < stack->next->value))
 	{
-		if (i < len/2)
-			temp->movecounta = i++;
-		else
-			temp->movecounta = i-- * -1;
-		temp = temp->next;
+		stack->next;
+		i++;
 	}
+	if (i > stacksize(stacka)/2)
+		i = (stacksize(stacka) - i) * 1;
+	return (i);
 }
