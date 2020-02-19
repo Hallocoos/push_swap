@@ -12,25 +12,25 @@
 
 #include "push_swap.h"
 
-t_stack	*find(t_stack *stack, int n)
+t_stack *find_weight(t_stack *stack, int n)
 {
 	while (stack->next)
 	{
-		if (stack->value == n)
+		if (stack->weight == n)
 			return (stack);
 		stack = stack->next;
 	}
 	return (NULL);
 }
 
-t_stack	*findtop(t_stack *stack)
+t_stack *find_top(t_stack *stack)
 {
 	while (stack->prev)
 		stack = stack->prev;
 	return (stack);
 }
 
-t_stack	*findbottom(t_stack *stack)
+t_stack *find_bottom(t_stack *stack)
 {
 	while (stack->next)
 	{
@@ -39,40 +39,53 @@ t_stack	*findbottom(t_stack *stack)
 	return (stack);
 }
 
-t_stack	*findmax(t_stack *stack)
+t_stack *find_max(t_stack *stack)
 {
+	// lose i to save some lines
 	t_stack	*ret;
+	t_stack	*stack_temp;
 	int		i;
 
-	stack = findtop(stack);
-	i = stack->value;
-	while (stack->next)
+	i = stack->weight;
+	stack_temp = stack;
+	ret = stack;
+	while (stack_temp)
 	{
-		if (stack->value > i)
+		if (stack_temp->end == 1)
+			stack_temp->end = 0;
+		if (stack_temp->weight > i)
 		{
-			ret = stack;
-			i = stack->value;
+			ret = stack_temp;
+			i = stack_temp->weight;
 		}
-		stack = stack->next;
+		stack_temp = stack_temp->next;
 	}
+	stack_temp = stack;
+	ret->end = 1;
 	return (ret);
 }
 
-t_stack	*findmin(t_stack *stack)
+t_stack *find_min(t_stack *stack)
 {
 	t_stack	*ret;
+	t_stack	*stack_temp;
 	int		i;
 
-	stack = findtop(stack);
-	i = stack->value;
-	while (stack->next)
+	i = stack->weight;
+	stack_temp = stack;
+	ret = stack;
+	while (stack_temp)
 	{
-		if (stack->value > i)
+		if (stack_temp->end == -1)
+			stack_temp->end = 0;
+		if (stack_temp->weight < i)
 		{
-			ret = stack;
-			i = stack->value;
+			ret = stack_temp;
+			i = stack_temp->weight;
 		}
-		stack = stack->next;
+		stack_temp = stack_temp->next;
 	}
+	stack_temp = stack;
+	ret->end = -1;
 	return (ret);
 }

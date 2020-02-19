@@ -18,7 +18,7 @@ void	ft_rra(t_stack **stacka, int i)
 	t_stack	*last;
 	t_stack	*second_last;
 
-	if (!(*stacka) || (stacksize(stacka) < 2))
+	if (!(*stacka) || (stacksize(*stacka) < 2))
 		return ;
 	last = *stacka;
 	second_last = NULL;
@@ -30,9 +30,6 @@ void	ft_rra(t_stack **stacka, int i)
 	second_last->next = NULL;
 	last->prev = NULL;
 	last->next = *stacka;
-	second_last->prev = *stacka;
-	(*stacka)->prev = last;
-	(*stacka)->next = second_last;
 	*stacka = last;
 	if (i == 1)
 		write(1, "rra\n", 4);
@@ -43,7 +40,7 @@ void	ft_rrb(t_stack **stackb, int i)
 	t_stack	*last;
 	t_stack	*second_last;
 
-	if (!(*stackb) || (stacksize(stackb) < 2))
+	if (!(*stackb) || (stacksize(*stackb) < 2))
 		return ;
 	last = *stackb;
 	second_last = NULL;
@@ -55,19 +52,17 @@ void	ft_rrb(t_stack **stackb, int i)
 	second_last->next = NULL;
 	last->prev = NULL;
 	last->next = *stackb;
-	second_last->prev = *stackb;
-	(*stackb)->prev = last;
-	(*stackb)->next = second_last;
 	*stackb = last;
 	if (i == 1)
 		write(1, "rrb\n", 4);
 }
 
-void	ft_rrr(t_stack **stacka, t_stack **stackb)
+void	ft_rrr(t_stack **stacka, t_stack **stackb, int i)
 {
 	ft_rra(stacka, 0);
 	ft_rrb(stackb, 0);
-	ft_putstr("rrr\n");
+	if (i == 1)
+		ft_putstr("rrr\n");
 }
 
 int		check_chars(char **arr)
@@ -87,28 +82,24 @@ int		check_chars(char **arr)
 	return (0);
 }
 
-int		isDuplicate(char **arr)
+int		is_duplicate(char **arr)
 {
 	int i;
-	char *n;
+	int j;
 
-	i = 0;
 	if (check_chars(arr))
 		return (0);
-	else
+	i = 0;
+	while (arr[i])
 	{
-		while(arr[i])
+		j = 1;
+		while (arr[j])
 		{
-			n = ft_itoa(ft_atoi(arr[i]));
-			printf("%s = %s\n", n, arr[i]);
-			if (!ft_strequ(arr[i], n))
-			{
-				free(n);
+			if (ft_strequ(arr[i], arr[j]) && i != j)
 				return (0);
-			}
-			free(n);
-			i++;
+			j++;
 		}
+		i++;
 	}
 	return (1);
 }

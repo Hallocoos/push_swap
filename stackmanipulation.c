@@ -12,15 +12,15 @@
 
 #include "push_swap.h"
 
-void	set_weight(t_stack *stack)
+void		set_weight(t_stack *stack)
 {
 	int		i;
 	t_stack	*temp;
 	t_stack	*head;
 
 	head = stack;
-	i = stacksize(&head);
-	while (stack)
+	i = stacksize(head);
+	while (stack) 
 	{
 		temp = head;
 		stack->weight = i;
@@ -34,7 +34,7 @@ void	set_weight(t_stack *stack)
 	}
 }
 
-void	freestack(t_stack **stack)
+void		freestack(t_stack **stack)
 {
 	t_stack *next;
 
@@ -46,12 +46,12 @@ void	freestack(t_stack **stack)
 	}
 }
 
-int		stacksize(t_stack **stack)
+int			stacksize(t_stack *stack)
 {
 	int		i;
 	t_stack	*temp;
 
-	temp = *stack;
+	temp = stack;
 	i = 0;
 	while (temp)
 	{
@@ -61,12 +61,12 @@ int		stacksize(t_stack **stack)
 	return (i);
 }
 
-int		is_smallest(t_stack *stack)
+t_stack		*smallest(t_stack *stack)
 {
 	t_stack	*temp;
 
 	temp = stack;
 	while (temp->weight != 1)
 		temp = temp->next;
-	return (1);
+	return (temp);
 }

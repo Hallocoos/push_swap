@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-void	sortstack(t_stack **stacka, t_stack **stackb)
+void sortstack(t_stack **stacka, t_stack **stackb)
 {
-	int		len;
+	int len;
 
-	len = stacksize(stacka);
+	len = stacksize(*stacka);
 	if (len > 1)
 	{
 		if (len == 2)
@@ -25,29 +25,27 @@ void	sortstack(t_stack **stacka, t_stack **stackb)
 			sort_three(stacka);
 		else if (len > 3 && len < 6)
 			sort_five(stacka, stackb);
-//		else if (len > 5)
-//			sort_all(stacka, stackb);
+			else if (len > 5)
+				sort_all(stacka, stackb);
 	}
 }
 
-void	initialize(int argc, char **args)
+void initialize(int argc, char **args)
 {
-	t_stack	*stacka;
+	t_stack *stacka;
 	t_stack *stackb;
 
 	stackb = NULL;
 	if ((stacka = stackfill(argc, args)))
 	{
 		set_weight(stacka);
-//		movecount(stacka);
-//		movecount(stackb);
-		print_stack(&stacka);
+		stacka_move_count(stacka);
 		sortstack(&stacka, &stackb);
 		print_stack(&stacka);
 		if (stackb)
 			print_stack(&stackb);
 	}
-/*
+	/*
 	if (stacka)
 		freestack(&stacka);
 	if (stackb)
@@ -55,10 +53,9 @@ void	initialize(int argc, char **args)
 */
 }
 
-
-int		main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	char	**args;
+	char 	**args;
 
 	args = argv + 1;
 	if (argc > 1)

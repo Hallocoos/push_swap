@@ -16,23 +16,19 @@
 void	ft_sa(t_stack **stacka, int i)
 {
 	t_stack *first;
-	t_stack *second;
-	t_stack *third;
+	t_stack *second;;
 
-	if (!(*stacka) || (stacksize(stacka) < 2))
+	if (!(*stacka) || (stacksize(*stacka) < 2))
 		return ;
 	first = (*stacka);
 	second = first->next;
-	third = second->next;
 	first->prev = second;
 	first->next = second->next;
-	third->prev = first;
 	second->prev = NULL;
 	second->next = first;
 	*stacka = second;
 	if (i == 1)
 		write(1, "sa\n", 3);
-	print_stack(stacka);
 }
 
 void	ft_sb(t_stack **stackb, int i)
@@ -41,7 +37,7 @@ void	ft_sb(t_stack **stackb, int i)
 	t_stack	*second;
 	t_stack	*third;
 
-	if (!(*stackb) || (stacksize(stackb) < 2))
+	if (!(*stackb) || (stacksize(*stackb) < 2))
 		return ;
 	first = (*stackb);
 	second = (*stackb)->next;
@@ -56,14 +52,15 @@ void	ft_sb(t_stack **stackb, int i)
 		write(1, "sb\n", 3);
 }
 
-void	ft_ss(t_stack **stacka, t_stack **stackb)
+void	ft_ss(t_stack **stacka, t_stack **stackb, int i)
 {
 	if (stacka && stackb)
 	{
 		ft_sa(stacka, 0);
 		ft_sb(stackb, 0);
 	}
-	write(1, "ss\n", 3);
+	if (i == 1)
+		write(1, "ss\n", 3);
 }
 
 void	ft_pa(t_stack **stacka, t_stack **stackb, int i)
@@ -94,6 +91,7 @@ void	ft_pb(t_stack **stacka, t_stack **stackb, int i)
 {
 	t_stack *temp;
 
+	(*stacka)->move_count = 0;
 	if (!*stacka)
 		return ;
 	if (stacka != NULL)

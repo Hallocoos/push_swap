@@ -1,0 +1,24 @@
+NICE TO HAVE:
+	Redo sort_five to be most effecient.
+
+TODO:
+	Check that biggest and smallest are always next to each other
+	set var = last
+	Use logic that treats the last and first indeces as next to each other
+
+SORT ALL ALGO LOGIC:
+	Do sort_all algo.
+		Prep:	3x push to stackb
+				Define where we can't push ie. between max and min
+						Can't compare a index with the max and min, unless it's smaller/biggest than min/max.
+
+	Find best stackb pos LOGiC:
+		while (!(stacka[i] > stackb[j] && stacka[i] < stackb[j+ 1]))
+			increment through stack;
+		if stackb[j] == smallest_weight and stackb[j + 1] == biggest_weight 
+
+	 
+
+
+COMPLETED:					
+	Fix ft_rrb.

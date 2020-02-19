@@ -10,20 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
+#define PUSH_SWAP_H
 
 #include "libft/libft.h"
 #include <stdio.h>
 
-typedef	struct		s_stack
+typedef struct	s_stack
 {
-	int				value;
-	int				weight;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-	int				movecount;
-}					t_stack;
+	int			value;
+	int			weight;
+	int			move_count;
+	int			best_pos_weight;
+	int			end;
+	struct		s_stack *next;
+	struct		s_stack *prev;
+}				t_stack;
+
+typedef struct	s_moves
+{
+	int move_count;
+}				t_moves;
 
 t_stack	*lstnew(void const *content, size_t content_size);
 void	lstdelone(t_stack **alst, void (*del)(void *, size_t));
@@ -36,25 +43,35 @@ void	print_stack(t_stack **stack);
 t_stack	*stackfill(int n, char **args);
 void	ft_sa(t_stack **stacka, int n);
 void	ft_sb(t_stack **stacka, int n);
-void	ft_ss(t_stack **stacka, t_stack **stackb);
+void	ft_ss(t_stack **stacka, t_stack **stackb, int i);
 void	ft_pa(t_stack **stacka, t_stack **stackb, int n);
 void	ft_pb(t_stack **stacka, t_stack **stackb, int n);
 void	ft_ra(t_stack **stacka, int n);
 void	ft_rb(t_stack **stackb, int n);
-void	ft_rr(t_stack **stacka, t_stack **stackb);
+void	ft_rr(t_stack **stacka, t_stack **stackb, int i);
 void	ft_rra(t_stack **stacka, int n);
-void	ft_rrb(t_stack **stackb, int n);
-void	ft_rrr(t_stack **stacka, t_stack **stackb);
-int		isDuplicate(char **arr);
+void 	ft_rrb(t_stack **stackb, int n);
+void	ft_rrr(t_stack **stacka, t_stack **stackb, int i);
+int		is_duplicate(char **arr);
 void	set_weight(t_stack *stack);
 void	freestack(t_stack **stack);
-int		stacksize(t_stack **stack);
+int		stacksize(t_stack *stack);
 void	sort_two(t_stack **stack);
 void	sort_three(t_stack **stack);
 void	sort_five(t_stack **stacka, t_stack **stackb);
 void	sort_ten(t_stack **stacka, t_stack **stackb);
 void	sort_all(t_stack **stacka, t_stack **stackb);
-int		is_smallest(t_stack *stack);
-void	movecount(t_stack *stack);
+t_stack	*smallest(t_stack *stack);
+int		move_count(t_stack *index_stack, t_stack *search_stack);
+void	stacka_move_count(t_stack *stack);
+void	stackb_move_count(t_stack *stack);
+t_stack	*get_last_in_stack(t_stack *stack);
+void	find_best_stackb_pos(t_stack *stacka, t_stack *stackb);
+int		stackb_is_sorted(t_stack *stackb);
+t_stack	*find_weight(t_stack *stack, int n);
+t_stack	*find_top(t_stack *stack);
+t_stack	*find_bottom(t_stack *stack);
+t_stack	*find_max(t_stack *stack);
+t_stack	*find_min(t_stack *stack);
 
-# endif
+#endif

@@ -17,6 +17,6 @@ int		ft_arrlen(char **array)
 	int		j;
 
 	j = 0;
-	while (array[++j] != '\0');
+	while (array[++j] != 0);
 	return (j);
 }

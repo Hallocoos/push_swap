@@ -12,27 +12,23 @@
 
 #include "push_swap.h"
 
-void	ft_ra(t_stack **stacka, int n)
+void	ft_ra(t_stack **stack_a, int i)
 {
 	t_stack	*first;
 	t_stack	*last;
-	t_stack	*temp;
 
-	first = *stacka;
-	last = *stacka;
-	temp = first->next;
-	if (first && last)
-	{
-		while (last->next)
-			last = last->next;
-		last->next = first;
-		first->prev = last;
-		first->next = NULL;
-		temp->prev = NULL;
-		*stacka = temp;
-		if (n == 1)
-			ft_putstr("ra\n");
-	}
+	if ((!*stack_a) || (stacksize(*stack_a) < 2))
+		return ;
+	first = *stack_a;
+	last = *stack_a;
+	while (last->next != NULL)
+		last = last->next;
+	*stack_a = first->next;
+	first->next = NULL;
+	last->next = first;
+	first->prev = last;
+	if (i == 1)
+		ft_putstr("ra\n");
 }
 
 void	ft_rb(t_stack **stackb, int n)
@@ -58,9 +54,10 @@ void	ft_rb(t_stack **stackb, int n)
 	}
 }
 
-void	ft_rr(t_stack **stacka, t_stack **stackb)
+void	ft_rr(t_stack **stacka, t_stack **stackb, int i)
 {
 	ft_ra(stacka, 0);
 	ft_ra(stackb, 0);
-	ft_putstr("rr\n");
+	if (i == 1)
+		ft_putstr("rr\n");
 }

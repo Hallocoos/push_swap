@@ -25,5 +25,6 @@ int	ft_strequ(char const *s1, char const *s2)
 			return (0);
 		i++;
 	}
+
 	return (1);
 }

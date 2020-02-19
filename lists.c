@@ -76,12 +76,15 @@ void	print_stack(t_stack **stack)
 				break ;
 			}
 			ft_putnbr(new->value);
-			ft_putstr(" [");
+			ft_putstr("\t[");
 			ft_putnbr(new->weight);
-			ft_putstr("]");
-			ft_putstr(" {");
-			ft_putnbr(new->movecount);
-			ft_putstr("}\n");
+			ft_putstr("]\t{");
+			ft_putnbr(new->move_count);
+			ft_putstr("}\t(");
+			ft_putnbr(new->best_pos_weight);
+			ft_putstr(")\t[");
+			ft_putnbr(new->end);
+			ft_putstr("]\n");
 			prev = new;
 			new = new->next;
 		}
@@ -98,10 +101,8 @@ t_stack	*stackfill(int n, char **args)
 	i = 0;
 	new = NULL;
 	stack = createnode(ft_atoi(args[i]));
-	if (isDuplicate(args) == 0)
-	{
+	if (is_duplicate(args) == 0)
 		return (NULL);
-	}
 	else if (args[i])
 	{
 		while (++i < n)
@@ -110,6 +111,6 @@ t_stack	*stackfill(int n, char **args)
 			add_tail(new, &stack);
 		}
 	}
-	print_stack(&stack);
+	// print_stack(&stack);
 	return (stack);
 }

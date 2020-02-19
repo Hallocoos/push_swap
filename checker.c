@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 #include <stdio.h>
-void		sort(t_stack **stacka, t_stack **stackb, char *args)
+void sort(t_stack **stacka, t_stack **stackb, char *args)
 {
 	if (ft_strequ(args, "sa"))
 		ft_sa(stacka, 0);
@@ -38,9 +38,9 @@ void		sort(t_stack **stacka, t_stack **stackb, char *args)
 		ft_rrr(stacka, stackb);
 }
 
-void		readline(t_stack **stacka, t_stack **stackb)
+void readline(t_stack **stacka, t_stack **stackb)
 {
-	char 	*args;
+	char *args;
 
 	args = malloc(1);
 	while (get_next_line(0, &args))
@@ -51,9 +51,9 @@ void		readline(t_stack **stacka, t_stack **stackb)
 	}
 }
 
-int			checker(t_stack **stack)
+int checker(t_stack **stack)
 {
-	t_stack	*temp;
+	t_stack *temp;
 	t_stack *tempnext;
 
 	temp = *stack;
@@ -73,11 +73,11 @@ int			checker(t_stack **stack)
 	return (1);
 }
 
-int			main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_stack	*stacka;
+	t_stack *stacka;
 	t_stack *stackb;
-	char	**args;
+	char **args;
 
 	args = &argv[1];
 	if (argc > 1)
@@ -87,7 +87,7 @@ int			main(int argc, char **argv)
 		argc = ft_arrlen(args);
 		if ((stacka = stackfill(argc, args)))
 		{
-			stackb = NULL; 
+			stackb = NULL;
 			readline(&stacka, &stackb);
 			if ((checker(&stacka) == 1) && (stackb == NULL))
 				write(1, "OK\n", 3);
