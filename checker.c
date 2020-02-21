@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+#include <stdio.h>\
+
 void sort(t_stack **stacka, t_stack **stackb, char *args)
 {
 	if (ft_strequ(args, "sa"))
@@ -19,7 +20,7 @@ void sort(t_stack **stacka, t_stack **stackb, char *args)
 	else if (ft_strequ(args, "sb"))
 		ft_sb(stackb, 0);
 	else if (ft_strequ(args, "ss"))
-		ft_ss(stacka, stackb);
+		ft_ss(stacka, stackb, 0);
 	else if (ft_strequ(args, "pa"))
 		ft_pa(stacka, stackb, 0);
 	else if (ft_strequ(args, "pb"))
@@ -29,13 +30,13 @@ void sort(t_stack **stacka, t_stack **stackb, char *args)
 	else if (ft_strequ(args, "rb"))
 		ft_rb(stackb, 0);
 	else if (ft_strequ(args, "rr"))
-		ft_rr(stacka, stackb);
+		ft_rr(stacka, stackb, 0);
 	else if (ft_strequ(args, "rra"))
 		ft_rra(stacka, 0);
 	else if (ft_strequ(args, "rrb"))
 		ft_rrb(stackb, 0);
 	else if (ft_strequ(args, "rrr"))
-		ft_rrr(stacka, stackb);
+		ft_rrr(stacka, stackb, 0);
 }
 
 void readline(t_stack **stacka, t_stack **stackb)
@@ -96,7 +97,7 @@ int main(int argc, char **argv)
 			print_stack(&stacka);
 		}
 	}
-	freestack(stacka);
-	freestack(stackb);
+	freestack(&stacka);
+	freestack(&stackb);
 	return (0);
 }

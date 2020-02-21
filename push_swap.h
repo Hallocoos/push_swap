@@ -23,6 +23,7 @@ typedef struct	s_stack
 	int			move_count;
 	int			best_pos_weight;
 	int			end;
+	int			total_move_count;
 	struct		s_stack *next;
 	struct		s_stack *prev;
 }				t_stack;
@@ -73,5 +74,6 @@ t_stack	*find_top(t_stack *stack);
 t_stack	*find_bottom(t_stack *stack);
 t_stack	*find_max(t_stack *stack);
 t_stack	*find_min(t_stack *stack);
+int		move_calc(t_stack *stacka, t_stack *stackb);
 
 #endif

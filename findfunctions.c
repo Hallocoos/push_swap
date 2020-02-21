@@ -14,13 +14,9 @@
 
 t_stack *find_weight(t_stack *stack, int n)
 {
-	while (stack->next)
-	{
-		if (stack->weight == n)
-			return (stack);
+	while (stack->weight != n)
 		stack = stack->next;
-	}
-	return (NULL);
+	return (stack);
 }
 
 t_stack *find_top(t_stack *stack)

@@ -10,7 +10,7 @@ stackmanipulation.c libft/libft.a sorting_algorithms*.c
 CHKSRC=checker.c lists.c stackfunctions*.c libft/libft.a \
 stackmanipulation.c
 
-all: push_swap checker
+all: checker push_swap
 
 push_swap:
 	gcc $(FLAGS) $(PSHSRC) -o push_swap

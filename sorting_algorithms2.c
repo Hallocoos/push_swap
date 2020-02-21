@@ -83,24 +83,18 @@ void		find_best_stackb_pos(t_stack *stacka, t_stack *stackb)
 		stackb_curr = stackb;
 		while (stackb_curr)
 		{
-			find_max(stackb);
-			find_min(stackb);
 			if (stackb_curr->next)
 				stackb_next = stackb_curr->next;
 			else
 				stackb_next = stackb;
-
-			ft_putstr("STACKA INDEX: ");
-			ft_putnbr(stacka->weight);
-			ft_putstr("\n");
-
+			find_min(stackb);
+			find_max(stackb);
 			if (stacka->weight < find_min(stackb)->weight)
 			{
 				if (find_min(stackb)->next)
 					stacka->best_pos_weight = find_min(stackb)->next->weight;
 				else
 					stacka->best_pos_weight = stackb->weight;
-				break ;
 			}
 			else if (stacka->weight > find_max(stackb)->weight)
 			{
@@ -108,13 +102,11 @@ void		find_best_stackb_pos(t_stack *stacka, t_stack *stackb)
 					stacka->best_pos_weight = find_max(stackb)->weight;
 				else
 					stacka->best_pos_weight = stackb->weight;
-				break ;
 			}
 			else if (stacka->weight < stackb_curr->weight && stacka->weight > stackb_next->weight &&
 			((stackb_curr->end != 1 && stackb_next->end != -1) || (stackb_curr->end != -1 && stackb_next->end != 1)))
 			{
 				stacka->best_pos_weight = (int)stackb_next->weight;
-				break ;
 			}
 			stackb_curr = stackb_curr->next;
 		}
@@ -146,4 +138,23 @@ int			stackb_is_sorted(t_stack *stackb)
 		// write(1, "sort_all algo passed.\n", 22);
 		return (0);
 	}	
+}
+
+int		move_calc(t_stack *stacka, t_stack *stackb)
+{
+	int	stacka_move_count;
+	int	stackb_move_count;
+
+	while (stacka)
+	{
+		stacka_move_count = stacka->move_count;
+		stackb_move_count = find_weight(stackb, stacka->best_pos_weight)->move_count;
+		if (stacka_move_count < 0)
+			stacka_move_count *= -1;
+		if (stackb_move_count < 0)
+			stackb_move_count *= -1;
+		stacka->total_move_count = stacka_move_count + stackb_move_count;
+		stacka = stacka->next;
+	}
+	return (1);
 }

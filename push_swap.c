@@ -25,8 +25,8 @@ void sortstack(t_stack **stacka, t_stack **stackb)
 			sort_three(stacka);
 		else if (len > 3 && len < 6)
 			sort_five(stacka, stackb);
-			else if (len > 5)
-				sort_all(stacka, stackb);
+		else if (len > 5)
+		sort_all(stacka, stackb);
 	}
 }
 
@@ -41,9 +41,10 @@ void initialize(int argc, char **args)
 		set_weight(stacka);
 		stacka_move_count(stacka);
 		sortstack(&stacka, &stackb);
-		print_stack(&stacka);
-		if (stackb)
-			print_stack(&stackb);
+		// if (stacka)
+			// print_stack(&stacka);
+		// if (stackb)
+		// 	print_stack(&stackb);
 	}
 	/*
 	if (stacka)

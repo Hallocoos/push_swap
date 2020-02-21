@@ -84,7 +84,9 @@ void	print_stack(t_stack **stack)
 			ft_putnbr(new->best_pos_weight);
 			ft_putstr(")\t[");
 			ft_putnbr(new->end);
-			ft_putstr("]\n");
+			ft_putstr("]\t{");
+			ft_putnbr(new->total_move_count);
+			ft_putstr("}\n");
 			prev = new;
 			new = new->next;
 		}
