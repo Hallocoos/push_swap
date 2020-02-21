@@ -47,7 +47,6 @@ void readline(t_stack **stacka, t_stack **stackb)
 	while (get_next_line(0, &args))
 	{
 		sort(stacka, stackb, args);
-		//ft_putstr(args);
 		free(args);
 	}
 }
@@ -69,7 +68,6 @@ int checker(t_stack **stack)
 			tempnext = tempnext->next;
 		}
 	}
-	free(temp);
 	free(tempnext);
 	return (1);
 }
@@ -89,7 +87,7 @@ int main(int argc, char **argv)
 		if ((stacka = stackfill(argc, args)))
 		{
 			stackb = NULL;
-			readline(&stacka, &stackb);
+			// readline(&stacka, &stackb);
 			if ((checker(&stacka) == 1) && (stackb == NULL))
 				write(1, "OK\n", 3);
 			else
@@ -99,5 +97,6 @@ int main(int argc, char **argv)
 	}
 	freestack(&stacka);
 	freestack(&stackb);
+	while(1);
 	return (0);
 }
