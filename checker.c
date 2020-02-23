@@ -53,6 +53,7 @@ void readline(t_stack **stacka, t_stack **stackb)
 
 int checker(t_stack **stack)
 {
+	// cut out temp->next
 	t_stack *temp;
 	t_stack *tempnext;
 
@@ -81,22 +82,25 @@ int main(int argc, char **argv)
 	args = &argv[1];
 	if (argc > 1)
 	{
-		if (argc == 2)
-			args = ft_strsplit(argv[1], ' ');
-		argc = ft_arrlen(args);
+		argc = argc - 1;
+		if (argc == 1 && ft_strchr(args[0], ' ') != NULL)
+		{
+			args = ft_strsplit(args[0], ' ');
+			argc = ft_arrlen(args);
+		}
 		if ((stacka = stackfill(argc, args)))
 		{
 			stackb = NULL;
-			// readline(&stacka, &stackb);
+			readline(&stacka, &stackb);
 			if ((checker(&stacka) == 1) && (stackb == NULL))
 				write(1, "OK\n", 3);
 			else
 				write(1, "KO\n", 3);
 			print_stack(&stacka);
+			freestack(&stacka);
+			freestack(&stackb);
+			// while(1);
 		}
 	}
-	freestack(&stacka);
-	freestack(&stackb);
-	while(1);
 	return (0);
 }

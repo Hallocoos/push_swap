@@ -77,6 +77,8 @@ void		find_best_stackb_pos(t_stack *stacka, t_stack *stackb)
 {
 	t_stack	*stackb_curr;
 	t_stack	*stackb_next;
+	t_stack	*min;
+	t_stack	*max;
 
 	while (stacka)
 	{
@@ -87,19 +89,19 @@ void		find_best_stackb_pos(t_stack *stacka, t_stack *stackb)
 				stackb_next = stackb_curr->next;
 			else
 				stackb_next = stackb;
-			find_min(stackb);
-			find_max(stackb);
-			if (stacka->weight < find_min(stackb)->weight)
+			min = find_min(stackb);
+			max = find_max(stackb);
+			if (stacka->weight < min->weight)
 			{
-				if (find_min(stackb)->next)
-					stacka->best_pos_weight = find_min(stackb)->next->weight;
+				if (min->next)
+					stacka->best_pos_weight = min->next->weight;
 				else
 					stacka->best_pos_weight = stackb->weight;
 			}
-			else if (stacka->weight > find_max(stackb)->weight)
+			else if (stacka->weight > max->weight)
 			{
-				if (find_max(stackb))
-					stacka->best_pos_weight = find_max(stackb)->weight;
+				if (max)
+					stacka->best_pos_weight = max->weight;
 				else
 					stacka->best_pos_weight = stackb->weight;
 			}
