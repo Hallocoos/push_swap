@@ -28,7 +28,7 @@ void	ft_ra(t_stack **stack_a, int i)
 	last->next = first;
 	first->prev = last;
 	if (i == 1)
-		ft_putstr("ra\n");
+		write(1, "ra\n", 3);
 }
 
 void	ft_rb(t_stack **stackb, int n)
@@ -50,7 +50,7 @@ void	ft_rb(t_stack **stackb, int n)
 		temp->prev = NULL;
 		*stackb = temp;
 		if (n == 1)
-			ft_putstr("rb\n");
+			write(1, "rb\n", 3);
 	}
 }
 
@@ -59,5 +59,5 @@ void	ft_rr(t_stack **stacka, t_stack **stackb, int i)
 	ft_ra(stacka, 0);
 	ft_ra(stackb, 0);
 	if (i == 1)
-		ft_putstr("rr\n");
+		write(1, "rr\n", 3);
 }

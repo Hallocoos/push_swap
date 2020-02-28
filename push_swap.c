@@ -41,11 +41,13 @@ void initialize(int argc, char **args)
 		set_weight(stacka);
 		stacka_move_count(stacka);
 		sortstack(&stacka, &stackb);
-		// if (stacka)
-		// 	print_stack(&stacka);
-		// if (stackb)
-		// 	print_stack(&stackb);
+		if (stacka)
+			print_stack(&stacka);
+		if (stackb)
+			print_stack(&stackb);
 	}
+	else
+		write(1, "Error\n", 6);
 	// if (stacka)
 	// 	freestack(&stacka);
 	// if (stackb)

@@ -18,6 +18,12 @@ void sort_two(t_stack **stack)
 		ft_sa(stack, 1);
 }
 
+void stackb_sort_two(t_stack **stack)
+{
+	if ((*stack)->weight > (*stack)->next->weight)
+		ft_sb(stack, 1);
+}
+
 void sort_three(t_stack **stack)
 {
 	if ((*stack)->weight == 3 && (*stack)->next->weight == 1 && (*stack)->next->next->weight == 2)
@@ -54,27 +60,26 @@ void sort_five(t_stack **stacka, t_stack **stackb)
 	sort_three(stacka);
 	while (stacksize(*stackb) != 0)
 		ft_pa(stacka, stackb, 1);
-	set_weight(*stacka);
 }
 
 
 void sort_three_desc(t_stack **stack)
 {
 	if ((*stack)->end == -1 && (*stack)->next->end == 1 && (*stack)->next->next->end == 0)
-		ft_ra(stack, 1);
+		ft_rb(stack, 1);
 	else {
-		sort_two(stack);
+		stackb_sort_two(stack);
 		if ((*stack)->end == -1)
-			ft_rra(stack, 1);
+			ft_rrb(stack, 1);
 		else if ((*stack)->end == 1 && (*stack)->next->end == -1 && (*stack)->next->next->end == 0)
 		{
-			ft_rra(stack, 1);
-			ft_sa(stack, 1);
+			ft_rrb(stack, 1);
+			ft_sb(stack, 1);
 		}
 		else if ((*stack)->end == 0 && (*stack)->next->end == -1 && (*stack)->next->next->end == 1)
 		{
-			ft_ra(stack, 1);
-			ft_sa(stack, 1);
+			ft_rb(stack, 1);
+			ft_sb(stack, 1);
 		}
 	}
 }
@@ -125,6 +130,28 @@ void sort_all(t_stack **stacka, t_stack **stackb)
 		stackb_move_count(*stackb);
 		find_best_stackb_pos(*stacka, *stackb);
 		move_calc(*stacka, *stackb);
+		// weight = find_weight(*stackb, (*stacka)->best_pos_weight);
+		// smallest_move_count = find_smallest_move_count(*stacka);
+		// while (smallest_move_count->move_count != 0 && weight->move_count != 0)
+		// {
+		// 	ft_putstr("\n");
+		// 	ft_putnbr(smallest_move_count->move_count);
+		// 	ft_putstr(" AND ");
+		// 	ft_putnbr(weight->move_count);
+		// 	ft_putstr(";\n");
+		// 	if (smallest_move_count->move_count < 0 && weight->move_count < 0)
+		// 		ft_rrr(stacka, stackb, 1);
+		// 	if (smallest_move_count->move_count > 0 && weight->move_count > 0)
+		// 		ft_rr(stacka, stackb, 1);
+		// 	else
+		// 		break ;
+		// 	stacka_move_count(*stacka);
+		// 	stackb_move_count(*stackb);
+		// 	weight = find_weight(*stackb, (*stacka)->best_pos_weight);
+		// 	smallest_move_count = find_smallest_move_count(*stacka);
+		// 	print_stack(stacka);
+		// 	print_stack(stackb);
+		// }	
 		smallest_move_count = find_smallest_move_count(*stacka);
 		while ((*stacka)->weight != smallest_move_count->weight)
 			if (smallest_move_count->move_count > 0)
@@ -132,9 +159,7 @@ void sort_all(t_stack **stacka, t_stack **stackb)
 			else if (smallest_move_count->move_count < 0)
 				ft_rra(stacka, 1);
 		weight = find_weight(*stackb, (*stacka)->best_pos_weight);
-		smallest_move_count = find_smallest_move_count(*stacka);
 		while ((*stackb)->weight != (*stacka)->best_pos_weight)
-			weight = find_weight(*stackb, (*stacka)->best_pos_weight);
 			if (weight->move_count > 0)
 				ft_rb(stackb, 1);
 			else if (weight->move_count < 0)

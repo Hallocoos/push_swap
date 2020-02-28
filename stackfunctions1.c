@@ -16,12 +16,12 @@
 void	ft_sa(t_stack **stacka, int i)
 {
 	t_stack *first;
-	t_stack *second;;
+	t_stack *second;
 
-	if (!(*stacka) || (stacksize(*stacka) < 2))
+	if (!(*stacka))
 		return ;
 	first = (*stacka);
-	second = first->next;
+	second = (*stacka)->next;
 	first->prev = second;
 	first->next = second->next;
 	second->prev = NULL;

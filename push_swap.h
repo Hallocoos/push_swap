@@ -1,4 +1,3 @@
-/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
@@ -28,11 +27,6 @@ typedef struct	s_stack
 	struct		s_stack *prev;
 }				t_stack;
 
-typedef struct	s_moves
-{
-	int move_count;
-}				t_moves;
-
 t_stack	*lstnew(void const *content, size_t content_size);
 void	lstdelone(t_stack **alst, void (*del)(void *, size_t));
 void	lstdel(t_stack **alst, void (*del)(void *, size_t));
@@ -60,7 +54,6 @@ int		stacksize(t_stack *stack);
 void	sort_two(t_stack **stack);
 void	sort_three(t_stack **stack);
 void	sort_five(t_stack **stacka, t_stack **stackb);
-void	sort_ten(t_stack **stacka, t_stack **stackb);
 void	sort_all(t_stack **stacka, t_stack **stackb);
 t_stack	*smallest(t_stack *stack);
 int		move_count(t_stack *index_stack, t_stack *search_stack);

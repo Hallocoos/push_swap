@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>\
+#include <stdio.h>
 
 void sort(t_stack **stacka, t_stack **stackb, char *args)
 {
@@ -37,6 +37,8 @@ void sort(t_stack **stacka, t_stack **stackb, char *args)
 		ft_rrb(stackb, 0);
 	else if (ft_strequ(args, "rrr"))
 		ft_rrr(stacka, stackb, 0);
+	else
+		write(1, "Error\n", 6);
 }
 
 void readline(t_stack **stacka, t_stack **stackb)
@@ -47,6 +49,7 @@ void readline(t_stack **stacka, t_stack **stackb)
 	while (get_next_line(0, &args))
 	{
 		sort(stacka, stackb, args);
+		// ft_putstr(args);
 		free(args);
 	}
 }
@@ -96,11 +99,11 @@ int main(int argc, char **argv)
 				write(1, "OK\n", 3);
 			else
 				write(1, "KO\n", 3);
-			print_stack(&stacka);
 			freestack(&stacka);
 			freestack(&stackb);
-			// while(1);
 		}
+		else
+			write(1, "Error\n", 6);
 	}
 	return (0);
 }

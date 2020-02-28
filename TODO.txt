@@ -1,24 +1,12 @@
 NICE TO HAVE:
 	Redo sort_five to be most effecient.
 
-TODO:
-
-SORT ALL ALGO LOGIC:
-	
-
-	 
-
-
 COMPLETED:					
-	Do sort_all algo.
-		Prep:	3x push to stackb
-				Define where we can't push ie. between max and min
-						Can't compare a index with the max and min, unless it's smaller/biggest than min/max.
-	Fix ft_rrb.
-	Check that biggest and smallest are always next to each other
-	set var = last
-	Use logic that treats the last and first indeces as next to each other
-	Find best stackb pos LOGiC:
-		while (!(stacka[i] > stackb[j] && stacka[i] < stackb[j+ 1]))
-			increment through stack;
-		if stackb[j] == smallest_weight and stackb[j + 1] == biggest_weight 
+	Fix memory leaks.
+	Protect against 2147483647 and -2147483648 or bigger/smaller numbers.
+	Protect against spaces when passing action to checker ie. "  sa  ".
+	"$>./push_swap 0 1 2 3". The program should display nothing (0 instruction)
+		-> add a function to check if stack is already sorted.
+	Implement ft_rr() and ft_rrr().
+	sort() needs to return int to determine whether it passed or failed.
+	Norm all code

@@ -62,7 +62,7 @@ void	ft_rrr(t_stack **stacka, t_stack **stackb, int i)
 	ft_rra(stacka, 0);
 	ft_rrb(stackb, 0);
 	if (i == 1)
-		ft_putstr("rrr\n");
+		write(1, "rrr\n", 4);
 }
 
 int		check_chars(char **arr)
