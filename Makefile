@@ -5,10 +5,10 @@ LIBSRC=$(shell find libft/ -name "*.c")
 LIBOBJ=$(shell find libft/ -name "*.o")
 OBJ=checker.o \push_swap.o \lists.o
 OPT=-c
-PSHSRC=push_swap.h push_swap.c findfunctions.c lists.c stackfunctions*.c \
-stackmanipulation.c libft/libft.a sorting_algorithms*.c
-CHKSRC=checker.c lists.c stackfunctions*.c libft/libft.a \
-stackmanipulation.c
+PSHSRC=push_swap.h lists.c stackfunctions*.c algo_helpers*.c findfunctions.c \
+stackmanipulation.c libft/*.c sorting_algorithms*.c push_swap.c
+CHKSRC=push_swap.h lists.c stackfunctions*.c algo_helpers*.c findfunctions.c \
+stackmanipulation.c libft/*.c sorting_algorithms*.c checker.c
 
 all: push_swap checker
 
@@ -16,7 +16,7 @@ push_swap:
 	gcc $(FLAGS) $(PSHSRC) -o push_swap
 
 checker:
-	gcc -Wall -Werror -Wextra checker.c lists.c stackfunctions*.c libft/libft.a stackmanipulation.c -o checker
+	gcc $(FLAGS) $(CHKSRC) -o checker
 
 so:
 	@gcc -c -Wall -Werror -Wextra $(SRC) $(LIBSRC)

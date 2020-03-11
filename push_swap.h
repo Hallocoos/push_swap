@@ -13,7 +13,6 @@
 #define PUSH_SWAP_H
 
 #include "libft/libft.h"
-#include <stdio.h>
 
 typedef struct	s_stack
 {
@@ -27,6 +26,10 @@ typedef struct	s_stack
 	struct		s_stack *prev;
 }				t_stack;
 
+int		checker(t_stack **stack); 
+int		move_calc(t_stack *stacka, t_stack *stackb);
+int		is_sorted_desc(t_stack *stackb);
+void	sort_three_desc(t_stack **stack);
 t_stack	*lstnew(void const *content, size_t content_size);
 void	lstdelone(t_stack **alst, void (*del)(void *, size_t));
 void	lstdel(t_stack **alst, void (*del)(void *, size_t));
@@ -61,12 +64,13 @@ void	stacka_move_count(t_stack *stack);
 void	stackb_move_count(t_stack *stack);
 t_stack	*get_last_in_stack(t_stack *stack);
 void	find_best_stackb_pos(t_stack *stacka, t_stack *stackb);
+t_stack	*find_smallest_move_count(t_stack *stacka);
 int		stackb_is_sorted(t_stack *stackb);
 t_stack	*find_weight(t_stack *stack, int n);
 t_stack	*find_top(t_stack *stack);
 t_stack	*find_bottom(t_stack *stack);
 t_stack	*find_max(t_stack *stack);
 t_stack	*find_min(t_stack *stack);
-int		move_calc(t_stack *stacka, t_stack *stackb);
+void	stackb_sort_two(t_stack **stack);
 
 #endif

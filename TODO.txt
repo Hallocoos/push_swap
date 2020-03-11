@@ -3,10 +3,13 @@ NICE TO HAVE:
 
 COMPLETED:					
 	Fix memory leaks.
-	Protect against 2147483647 and -2147483648 or bigger/smaller numbers.
-	Protect against spaces when passing action to checker ie. "  sa  ".
+	Norm all code
+	Implement ft_rr() and ft_rrr().
+
+	COMPLETED:
+	What should happen to a single number?
 	"$>./push_swap 0 1 2 3". The program should display nothing (0 instruction)
 		-> add a function to check if stack is already sorted.
-	Implement ft_rr() and ft_rrr().
 	sort() needs to return int to determine whether it passed or failed.
-	Norm all code
+	Protect against 2147483647 and -2147483648 or bigger/smaller numbers.
+	Protect against spaces and non-functions when passing action to checker ie. "  sa  ".

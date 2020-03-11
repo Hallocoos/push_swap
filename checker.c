@@ -11,9 +11,8 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-void sort(t_stack **stacka, t_stack **stackb, char *args)
+int	sort(t_stack **stacka, t_stack **stackb, char *args)
 {
 	if (ft_strequ(args, "sa"))
 		ft_sa(stacka, 0);
@@ -38,45 +37,25 @@ void sort(t_stack **stacka, t_stack **stackb, char *args)
 	else if (ft_strequ(args, "rrr"))
 		ft_rrr(stacka, stackb, 0);
 	else
-		write(1, "Error\n", 6);
+		return (1);
+	return (0);
 }
 
-void readline(t_stack **stacka, t_stack **stackb)
+int	readline(t_stack **stacka, t_stack **stackb)
 {
 	char *args;
 
 	args = malloc(1);
 	while (get_next_line(0, &args))
 	{
-		sort(stacka, stackb, args);
-		// ft_putstr(args);
+		if (sort(stacka, stackb, args) == 1)
+			return (1);	
 		free(args);
 	}
+	return (0);
 }
 
-int checker(t_stack **stack)
-{
-	// cut out temp->next
-	t_stack *temp;
-	t_stack *tempnext;
-
-	temp = *stack;
-	tempnext = (*stack)->next;
-	if (temp && temp->next)
-	{
-		while (tempnext)
-		{
-			if (tempnext->value < temp->value)
-				return (0);
-			temp = tempnext;
-			tempnext = tempnext->next;
-		}
-	}
-	free(tempnext);
-	return (1);
-}
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack *stacka;
 	t_stack *stackb;
@@ -87,23 +66,20 @@ int main(int argc, char **argv)
 	{
 		argc = argc - 1;
 		if (argc == 1 && ft_strchr(args[0], ' ') != NULL)
-		{
 			args = ft_strsplit(args[0], ' ');
-			argc = ft_arrlen(args);
-		}
-		if ((stacka = stackfill(argc, args)))
+		stackb = NULL;
+		if ((argc = ft_arrlen(args)) && (stacka = stackfill(argc, args))  && readline(&stacka, &stackb) == 0)
 		{
-			stackb = NULL;
-			readline(&stacka, &stackb);
-			if ((checker(&stacka) == 1) && (stackb == NULL))
+			if (checker(&stacka) == 1 && (stackb == NULL))
 				write(1, "OK\n", 3);
 			else
 				write(1, "KO\n", 3);
+			// print_stack(&stacka);
 			freestack(&stacka);
 			freestack(&stackb);
 		}
 		else
-			write(1, "Error\n", 6);
+			write(1, "Error\n", 7);
 	}
 	return (0);
 }

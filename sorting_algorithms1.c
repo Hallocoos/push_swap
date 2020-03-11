@@ -18,12 +18,6 @@ void sort_two(t_stack **stack)
 		ft_sa(stack, 1);
 }
 
-void stackb_sort_two(t_stack **stack)
-{
-	if ((*stack)->weight > (*stack)->next->weight)
-		ft_sb(stack, 1);
-}
-
 void sort_three(t_stack **stack)
 {
 	if ((*stack)->weight == 3 && (*stack)->next->weight == 1 && (*stack)->next->next->weight == 2)
@@ -62,55 +56,12 @@ void sort_five(t_stack **stacka, t_stack **stackb)
 		ft_pa(stacka, stackb, 1);
 }
 
-
-void sort_three_desc(t_stack **stack)
-{
-	if ((*stack)->end == -1 && (*stack)->next->end == 1 && (*stack)->next->next->end == 0)
-		ft_rb(stack, 1);
-	else {
-		stackb_sort_two(stack);
-		if ((*stack)->end == -1)
-			ft_rrb(stack, 1);
-		else if ((*stack)->end == 1 && (*stack)->next->end == -1 && (*stack)->next->next->end == 0)
-		{
-			ft_rrb(stack, 1);
-			ft_sb(stack, 1);
-		}
-		else if ((*stack)->end == 0 && (*stack)->next->end == -1 && (*stack)->next->next->end == 1)
-		{
-			ft_rb(stack, 1);
-			ft_sb(stack, 1);
-		}
-	}
-}
-
-int		is_sorted_desc(t_stack *stackb)
-{
-	if (stackb->end == 1 && stackb->next->end == 0 && stackb->next->next->end == -1)
-		return (0);
-	return (1);
-}
-
-t_stack	*find_smallest_move_count(t_stack *stacka)
-{
-	t_stack	*smallest_move_count;
-
-	smallest_move_count = stacka;
-	while (stacka)
-	{
-		if (stacka->total_move_count < smallest_move_count->total_move_count)
-			smallest_move_count = stacka;
-		stacka = stacka->next;
-	}
-	return (smallest_move_count);
-}
-
 void sort_all(t_stack **stacka, t_stack **stackb)
 {
 	// START ==================================================
 	t_stack	*smallest_move_count;
 	t_stack	*weight;
-	
+
 	ft_pb(stacka, stackb, 1);
 	ft_pb(stacka, stackb, 1);
 	ft_pb(stacka, stackb, 1);
@@ -121,6 +72,8 @@ void sort_all(t_stack **stacka, t_stack **stackb)
 
 	if (is_sorted_desc(*stackb))
 		sort_three_desc(stackb);
+	// call middle function
+	// call end function
 	// START ==================================================
 
 	// MIDDLE ==================================================
@@ -151,7 +104,7 @@ void sort_all(t_stack **stacka, t_stack **stackb)
 		// 	smallest_move_count = find_smallest_move_count(*stacka);
 		// 	print_stack(stacka);
 		// 	print_stack(stackb);
-		// }	
+		// }
 		smallest_move_count = find_smallest_move_count(*stacka);
 		while ((*stacka)->weight != smallest_move_count->weight)
 			if (smallest_move_count->move_count > 0)
@@ -165,6 +118,8 @@ void sort_all(t_stack **stacka, t_stack **stackb)
 			else if (weight->move_count < 0)
 				ft_rrb(stackb, 1);
 		ft_pb(stacka, stackb, 1);
+		// print_stack(stacka);
+		// print_stack(stackb);
 	}
 	// MIDDLE ==================================================
 
