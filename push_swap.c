@@ -64,22 +64,48 @@ void initialize(int argc, char **args)
 
 int main(int argc, char **argv)
 {
+	int		i;
+	char *str = "asdf qwer zxcv qwer";
+	char **arr;
+	ft_putstr("\n");
+	ft_putstr("\n");
+	ft_putstr("\n");
+	ft_putstr("\n====\n");
+	ft_putstr(str);
+	ft_putstr("\n====\n");
+	arr = ft_strsplit(str, ' ');
+	i = 0;
+	while (arr[i])
+	{
+		ft_putstr(arr[i]);
+		ft_putstr(" ");
+		i++;
+	}
+	ft_putstr("\n====\n");
+	ft_putstr("\n");
+	ft_putstr("\n");
+
 	char 	**args;
 
 	args = argv + 1;
 	if (argc > 1)
 	{
 		argc = argc - 1;
-		if (argc == 1 && ft_strchr(args[0], ' ') != NULL)
+		if (argc == 1 && ft_strchr(args[0], ' '))
 		{
 			args = ft_strsplit(args[0], ' ');
+			int i = 0;
+			while (args[i])
+			{
+				ft_putstr(args[i]);
+				ft_putstr(" ");
+				i++;
+			}
 			argc = ft_arrlen(args);
 			initialize(argc, args);
 		}
 		else
 			initialize(argc, args);
-		free_array(args);
-		free(args);
 	}
 	return (0);
 }
