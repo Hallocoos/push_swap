@@ -107,12 +107,6 @@ t_stack	*stackfill(int n, char **args)
 		stack = createnode(ft_atoi(args[i]));
 		while (++i < n)
 		{
-			// ft_putstr(ft_itoa(ft_atoi(args[i])));
-			// ft_putstr(" AND ");
-			// ft_putstr(args[i]);
-			// ft_putstr("; Result: ");
-			// ft_putnbr(ft_strequ(ft_itoa(ft_atoi(args[i])), args[i]));
-			// ft_putstr("\n");
 			if (ft_strequ(ft_itoa(ft_atoi(args[i])), args[i]) == 0)
 				return (NULL);
 			new = createnode(ft_atoi(args[i]));
@@ -120,7 +114,6 @@ t_stack	*stackfill(int n, char **args)
 		}
 	}
 	else
-		return (NULL); 
-	// print_stack(&stack);
+		return (NULL);
 	return (stack);
 }

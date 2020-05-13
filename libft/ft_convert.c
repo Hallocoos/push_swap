@@ -14,7 +14,7 @@
 
 char	*ft_convert(int n, char *str, int i)
 {
-	if (n == INTMIN)
+	if (n == ft_atoi(INTMIN))
 		str = ft_strdup("-2147483648");
 	else
 	{

@@ -12,7 +12,7 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define INTMIN -2147483648
+# define INTMIN "-2147483648"
 # define INTMAX 2147483648
 # define BUFF_SIZE 1
 

@@ -10,7 +10,7 @@ stackmanipulation.c libft/*.c sorting_algorithms*.c push_swap.c
 CHKSRC=push_swap.h lists.c stackfunctions*.c algo_helpers*.c findfunctions.c \
 stackmanipulation.c libft/*.c sorting_algorithms*.c checker.c
 
-all: push_swap checker
+all: push_swap
 
 push_swap:
 	gcc $(FLAGS) $(PSHSRC) -o push_swap
@@ -29,4 +29,4 @@ clean:
 fclean: clean
 	@/bin/rm -f $(NAME)
 
-re: fclean all
+re: clean all

@@ -34,18 +34,6 @@ void		set_weight(t_stack *stack)
 	}
 }
 
-void		freestack(t_stack **stack)
-{
-	t_stack *next;
-
-	while (*stack)
-	{
-		next = (*stack)->next;
-		free(*stack);
-		*stack = next;
-	}
-}
-
 int			stacksize(t_stack *stack)
 {
 	int		i;
@@ -69,4 +57,19 @@ t_stack		*smallest(t_stack *stack)
 	while (temp->weight != 1)
 		temp = temp->next;
 	return (temp);
+}
+
+void		free_stack(t_stack **head)
+{
+	t_stack	*current;
+	t_stack	*next;
+
+	current = *head;
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	*head = NULL;
 }

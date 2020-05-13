@@ -12,6 +12,19 @@
 
 #include "push_swap.h"
 
+void	free_array(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
+
 void sortstack(t_stack **stacka, t_stack **stackb)
 {
 	int len;
@@ -42,22 +55,16 @@ void initialize(int argc, char **args)
 		stacka_move_count(stacka);
 		if (checker(&stacka) == 0)
 			sortstack(&stacka, &stackb);
-		// if (stacka)
-		// 	print_stack(&stacka);
-		// if (stackb)
-		// 	print_stack(&stackb);
 	}
 	else
 		write(1, "Error\n", 6);
-	// if (stacka)
-	// 	freestack(&stacka);
-	// if (stackb)
-	// 	freestack(&stackb);
+	free_stack(&stacka);
+	free_stack(&stackb);
 }
 
 int main(int argc, char **argv)
 {
-	char 	**args;
+	char	**args;
 
 	args = argv + 1;
 	if (argc > 1)
@@ -72,5 +79,6 @@ int main(int argc, char **argv)
 		else
 			initialize(argc, args);
 	}
+	free_array(args);
 	return (0);
 }

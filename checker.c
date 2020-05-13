@@ -74,9 +74,8 @@ int	main(int argc, char **argv)
 				write(1, "OK\n", 3);
 			else
 				write(1, "KO\n", 3);
-			// print_stack(&stacka);
-			freestack(&stacka);
-			freestack(&stackb);
+			free_stack(&stacka);
+			free_stack(&stackb);
 		}
 		else
 			write(1, "Error\n", 7);
