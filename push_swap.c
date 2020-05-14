@@ -79,6 +79,5 @@ int main(int argc, char **argv)
 		else
 			initialize(argc, args);
 	}
-	free_array(args);
 	return (0);
 }

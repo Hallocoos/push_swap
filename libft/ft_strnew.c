@@ -22,7 +22,6 @@ char	*ft_strnew(size_t size)
 			return (0);
 		else
 		{
-			free(s);
 			ft_bzero(s, size + 1);
 			return (s);
 		}
