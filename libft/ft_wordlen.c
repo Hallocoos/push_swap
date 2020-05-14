@@ -12,12 +12,15 @@
 
 #include "libft.h"
 
-int	ft_wordlen(const char *s, char c)
+int	ft_wordlen(char const *s, char c, int k)
 {
-	int i;
+	int		i;
 
 	i = 0;
-	while (s[i] != c && s[i] != '\0')
+	while (s[k] != c && s[k] != '\0')
+	{
 		i++;
+		k++;
+	}
 	return (i);
 }

@@ -25,8 +25,16 @@ t_list	*ft_file(int fd, t_list **file)
 			return (temp);
 		temp = temp->next;
 	}
+	ft_putstr("====\n");
+
+
+	// Line segfaults
 	temp = ft_lstnew("", fd);
 	ft_lstadd(file, temp);
+	//
+
+
+	ft_putstr("====\n");
 	return (temp);
 }
 

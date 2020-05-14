@@ -12,23 +12,19 @@
 
 #include "libft.h"
 
-int	ft_wordcount(const char *s, char c)
+int	ft_wordcount(char const *str, char delim, int index)
 {
-	int i;
-	int w;
+	int		count;
 
-	i = 0;
-	w = 0;
-	while (s[i])
+	if (!(str[index]))
+		return (0);
+	count = 0;
+	while (str[index] == delim)
+		index++;
+	while (str[index] != '\0' && str[index] != delim)
 	{
-		if (s[i] != c)
-		{
-			w++;
-			while (s[i] != c && s[i] != '\0')
-				i++;
-		}
-		if (s[i])
-			i++;
+		index++;
+		count = 1;
 	}
-	return (w);
+	return (count + ft_wordcount(str, delim, index));
 }
