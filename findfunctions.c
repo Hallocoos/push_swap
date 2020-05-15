@@ -58,7 +58,6 @@ t_stack *find_max(t_stack *stack)
 	}
 	stack_temp = stack;
 	ret->end = 1;
-	free(stack_temp);
 	return (ret);
 }
 

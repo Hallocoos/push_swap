@@ -100,14 +100,13 @@ t_stack	*stackfill(int n, char **args)
 	t_stack	*new;
 	int		i;
 	char 	*value;
-	char 	*value2;
 
 	i = 0;
 	new = NULL;
-	value2 = ft_itoa(ft_atoi(args[0]));
-	if (ft_strequ(value2, args[0]) != 0 && is_duplicate(args) != 0)
+	value = ft_itoa(ft_atoi(args[0]));
+	if (ft_strequ(value, args[0]) != 0 && is_duplicate(args) != 0)
 	{
-		free(value2);
+		free(value);
 		stack = createnode(ft_atoi(args[i]));
 		while (++i < n)
 		{
@@ -115,6 +114,7 @@ t_stack	*stackfill(int n, char **args)
 			if (ft_strequ(value, args[i]) == 0)
 			{
 				free(value);
+				free_stack(&stack);
 				return (NULL);
 			}
 			free(value);

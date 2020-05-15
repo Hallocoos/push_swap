@@ -42,16 +42,18 @@ int	sort(t_stack **stacka, t_stack **stackb, char *args)
 }
 
 int	readline(t_stack **stacka, t_stack **stackb)
-{
+{	
 	char *args;
 
-	args = malloc(1);
 	while (get_next_line(0, &args))
 	{
 		if (sort(stacka, stackb, args) == 1)
-			return (1);	
+		{
+			free(args);
+			return (1);
+		}
+		free(args);
 	}
-	free(args);
 	return (0);
 }
 
@@ -62,15 +64,16 @@ int	main(int argc, char **argv)
 	char **numbers;
 	int i;
 
-	i = 0;
-	numbers = &argv[1];
 	if (argc > 1)
 	{
+		i = 0;
+		numbers = &argv[1];
 		argc = argc - 1;
 		if (argc == 1 && ft_strchr(numbers[0], ' ') != NULL)
 		{
 			i = 1;
-			numbers = ft_strsplit(numbers[0], ' ');
+			if (!ft_is_empty(numbers[0]))
+				numbers = ft_strsplit(numbers[0], ' ');
 		}
 		stackb = NULL;
 		if ((argc = ft_arrlen(numbers)) && (stacka = stackfill(argc, numbers)) && readline(&stacka, &stackb) == 0)
@@ -79,13 +82,13 @@ int	main(int argc, char **argv)
 				write(1, "OK\n", 3);
 			else
 				write(1, "KO\n", 3);
-			if (i == 1)
-				ft_free_array(numbers);
-			free_stack(&stacka);
-			free_stack(&stackb);
 		}
 		else
-			write(1, "Error\n", 7);
+			write(1, "Error\n", 6);
+		if (i == 1)
+			ft_free_array(numbers);
+		free_stack(&stacka);
+		free_stack(&stackb);
 	}
 	return (0);
 }

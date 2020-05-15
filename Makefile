@@ -10,13 +10,13 @@ stackmanipulation.c libft/*.c sorting_algorithms*.c push_swap.c
 CHKSRC=push_swap.h lists.c stackfunctions*.c algo_helpers*.c findfunctions.c \
 stackmanipulation.c libft/*.c sorting_algorithms*.c checker.c
 
-all: push_swap
+all: push_swap checker
 
 push_swap:
-	gcc $(FLAGS) $(PSHSRC) -o push_swap
+	gcc $(FLAGS) $(PSHSRC) -ggdb3 -o push_swap
 
 checker:
-	gcc $(FLAGS) $(CHKSRC) -o checker
+	gcc $(FLAGS) $(CHKSRC) -ggdb3 -o checker
 
 so:
 	@gcc -c -Wall -Werror -Wextra $(SRC) $(LIBSRC)

@@ -54,9 +54,9 @@ int main(int argc, char **argv)
 	char	**numbers;
 
 	numbers = argv + 1;
-	if (argc < 2)
-		write(1, "Error", 5);
-	if (argc == 2)
+	if (argc < 2 || ft_is_empty(numbers[0]))
+		write(1, "Error\n", 6);
+	else if (argc == 2)
 	{
 		numbers = ft_strsplit(argv[1], ' ');
 		argc = ft_arrlen(numbers);

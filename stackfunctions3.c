@@ -76,7 +76,7 @@ int		check_chars(char **arr)
 		j = 0;
 		while (arr[i][j])
 		{
-			if (ft_isdigit(arr[i][j++]) == 0 && arr[i][0] != '-')
+			if (!ft_isdigit(arr[i][j++]) && arr[i][0] != '-')
 				return (1);
 		}
 		i++;

@@ -58,53 +58,23 @@ void sort_five(t_stack **stacka, t_stack **stackb)
 
 void sort_all(t_stack **stacka, t_stack **stackb)
 {
-	// START ==================================================
 	t_stack	*smallest_move_count;
 	t_stack	*weight;
 
 	ft_pb(stacka, stackb, 1);
 	ft_pb(stacka, stackb, 1);
 	ft_pb(stacka, stackb, 1);
-
 	while (*stackb != find_max(*stackb))
 		ft_rb(stackb, 1);
 	find_min(*stackb);
-
 	if (is_sorted_desc(*stackb))
 		sort_three_desc(stackb);
-	// call middle function
-	// call end function
-	// START ==================================================
-
-	// MIDDLE ==================================================
 	while (*stacka)
 	{
 		stacka_move_count(*stacka);
 		stackb_move_count(*stackb);
 		find_best_stackb_pos(*stacka, *stackb);
 		move_calc(*stacka, *stackb);
-		// weight = find_weight(*stackb, (*stacka)->best_pos_weight);
-		// smallest_move_count = find_smallest_move_count(*stacka);
-		// while (smallest_move_count->move_count != 0 && weight->move_count != 0)
-		// {
-		// 	ft_putstr("\n");
-		// 	ft_putnbr(smallest_move_count->move_count);
-		// 	ft_putstr(" AND ");
-		// 	ft_putnbr(weight->move_count);
-		// 	ft_putstr(";\n");
-		// 	if (smallest_move_count->move_count < 0 && weight->move_count < 0)
-		// 		ft_rrr(stacka, stackb, 1);
-		// 	if (smallest_move_count->move_count > 0 && weight->move_count > 0)
-		// 		ft_rr(stacka, stackb, 1);
-		// 	else
-		// 		break ;
-		// 	stacka_move_count(*stacka);
-		// 	stackb_move_count(*stackb);
-		// 	weight = find_weight(*stackb, (*stacka)->best_pos_weight);
-		// 	smallest_move_count = find_smallest_move_count(*stacka);
-		// 	print_stack(stacka);
-		// 	print_stack(stackb);
-		// }
 		smallest_move_count = find_smallest_move_count(*stacka);
 		while ((*stacka)->weight != smallest_move_count->weight)
 			if (smallest_move_count->move_count > 0)
@@ -118,19 +88,11 @@ void sort_all(t_stack **stacka, t_stack **stackb)
 			else if (weight->move_count < 0)
 				ft_rrb(stackb, 1);
 		ft_pb(stacka, stackb, 1);
-		// print_stack(stacka);
-		// print_stack(stackb);
 	}
-	// MIDDLE ==================================================
-
-	// END =====================================================
 	while (*stackb != find_max(*stackb))
 		ft_rb(stackb, 1);
-
 	stacka_move_count(*stacka);
 	stackb_move_count(*stackb);
-
 	while (*stackb)
 		ft_pa(stacka, stackb, 1);
-	// END =====================================================
 }

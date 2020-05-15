@@ -104,5 +104,6 @@ long				ft_atol(const char *str);
 int					ft_isnumber(char *str);
 void				ft_freearrays(char **array);
 void				ft_free_array(char **arr);
+int ft_is_empty(char *str);
 
 #endif
