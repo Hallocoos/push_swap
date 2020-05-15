@@ -50,8 +50,8 @@ int	readline(t_stack **stacka, t_stack **stackb)
 	{
 		if (sort(stacka, stackb, args) == 1)
 			return (1);	
-		free(args);
 	}
+	free(args);
 	return (0);
 }
 
@@ -59,26 +59,33 @@ int	main(int argc, char **argv)
 {
 	t_stack *stacka;
 	t_stack *stackb;
-	char **args;
+	char **numbers;
+	int i;
 
-	args = &argv[1];
+	i = 0;
+	numbers = &argv[1];
 	if (argc > 1)
 	{
 		argc = argc - 1;
-		if (argc == 1 && ft_strchr(args[0], ' ') != NULL)
-			args = ft_strsplit(args[0], ' ');
+		if (argc == 1 && ft_strchr(numbers[0], ' ') != NULL)
+		{
+			i = 1;
+			numbers = ft_strsplit(numbers[0], ' ');
+		}
 		stackb = NULL;
-		if ((argc = ft_arrlen(args)) && (stacka = stackfill(argc, args)) && readline(&stacka, &stackb) == 0)
+		if ((argc = ft_arrlen(numbers)) && (stacka = stackfill(argc, numbers)) && readline(&stacka, &stackb) == 0)
 		{
 			if (checker(&stacka) == 1 && (stackb == NULL))
 				write(1, "OK\n", 3);
 			else
 				write(1, "KO\n", 3);
+			if (i == 1)
+				ft_free_array(numbers);
 			free_stack(&stacka);
 			free_stack(&stackb);
 		}
 		else
-			write(1, "Error\n", 7);
+			write(1, "Error\n", 7);\
 	}
 	return (0);
 }

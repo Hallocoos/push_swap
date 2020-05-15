@@ -61,7 +61,7 @@ int main(int argc, char **argv)
 		numbers = ft_strsplit(argv[1], ' ');
 		argc = ft_arrlen(numbers);
 		initialize(argc, numbers);
-		free_array(numbers);
+		ft_free_array(numbers);
 	}
 	else
 	{

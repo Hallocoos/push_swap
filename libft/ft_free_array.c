@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_freearray.c                                     :+:      :+:    :+:   */
+/*   ft_free_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/04 11:41:00 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/09/04 11:48:13 by hde-vos          ###   ########.fr       */
+/*   Created: 2020/04/10 15:50:55 by hde-vos           #+#    #+#             */
+/*   Updated: 2020/04/11 11:21:25 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-void	ft_freearrays(char **array)
+void	ft_free_array(char **arr)
 {
-	while (*array)
-		free(*array++);
-	free(array);
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }

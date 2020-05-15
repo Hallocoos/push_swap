@@ -12,79 +12,56 @@
 
 #include "libft.h"
 
-t_list	*ft_file(int fd, t_list **file)
+static int	new_line(char **s, char **line, int fd)
 {
-	t_list	*temp;
-
-	if (!file)
-		return (NULL);
-	temp = *file;
-	while (temp)
-	{
-		if ((int)temp->content_size == fd)
-			return (temp);
-		temp = temp->next;
-	}
-	temp = ft_lstnew("", fd);
-	ft_lstadd(file, temp);
-	return (temp);
-}
-
-int		ft_generate_line(char *content, char **line)
-{
-	int		i;
-
-	i = 0;
-	while (content[i] && content[i] != '\n')
-		i++;
-	if (!(*line = ft_strndup(content, i)))
-		return (0);
-	return (i);
-}
-
-int		ft_reading(const int fd, char **content)
-{
-	char	buffer[BUFF_SIZE + 1];
 	char	*temp;
-	int		ret;
+	int		len;
 
-	while ((ret = read(fd, buffer, BUFF_SIZE)) > 0)
+	len = 0;
+	while (s[fd][len] != '\n' && s[fd][len] != '\0')
+		len++;
+	if (s[fd][len] == '\n')
 	{
-		buffer[ret] = '\0';
-		temp = *content;
-		if (!(*content = ft_strjoin(*content, buffer)))
-			return (-1);
-		free(temp);
-		if (ft_strchr(buffer, '\n'))
-			break ;
-	}
-	return (ret);
-}
-
-int		get_next_line(const int fd, char **line)
-{
-	static t_list	*file;
-	t_list			*current;
-	char			buffer[BUFF_SIZE + 1];
-	char			*temp;
-	int				ret;
-
-	if ((fd < 0 || line == NULL || (read(fd, buffer, 0)) < 0
-		|| (!(current = ft_file(fd, &file))) || (BUFF_SIZE <= 0)))
-		return (-1);
-	temp = current->content;
-	ret = ft_reading(fd, &temp);
-	current->content = temp;
-	if (ret == 0 && *temp == '\0')
-		return (0);
-	ret = ft_generate_line(current->content, line);
-	temp = current->content;
-	if (temp[ret] != '\0')
-	{
-		current->content = ft_strdup(current->content + ret + 1);
-		free(temp);
+		*line = ft_strsub(s[fd], 0, len);
+		temp = ft_strdup(s[fd] + len + 1);
+		free(s[fd]);
+		s[fd] = temp;
+		if (s[fd][0] == '\0')
+			ft_strdel(&s[fd]);
 	}
 	else
-		ft_strclr(temp);
+	{
+		*line = ft_strdup(s[fd]);
+		ft_strdel(&s[fd]);
+	}
 	return (1);
+}
+
+int			get_next_line(const int fd, char **line)
+{
+	char			buf[BUFF_SIZE + 1];
+	static char		*s[255];
+	char			*tmp;
+	int				res;
+
+	if (fd < 0 || line == NULL)
+		return (-1);
+	while ((res = read(fd, buf, BUFF_SIZE)) > 0)
+	{
+		buf[res] = '\0';
+		if (s[fd] == NULL)
+			s[fd] = ft_strdup(buf);
+		else
+		{
+			tmp = ft_strjoin(s[fd], buf);
+			free(s[fd]);
+			s[fd] = tmp;
+		}
+		if (ft_strchr(s[fd], '\n'))
+			break ;
+	}
+	if (res < 0)
+		return (-1);
+	else
+		return ((res == 0 && s[fd] == NULL) ? 0 : new_line(s, line, fd));
 }
