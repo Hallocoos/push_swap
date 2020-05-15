@@ -1,32 +1,40 @@
-NAME=push_swap.a
-LIBNAME=libft/libft.a
+PNME = push_swap
+CNME = checker
+LIB = libft/libft.a
+MAKELIB = -C libft
 FLAGS=-Wall -Werror -Wextra
-LIBSRC=$(shell find libft/ -name "*.c")
-LIBOBJ=$(shell find libft/ -name "*.o")
-OBJ=checker.o \push_swap.o \lists.o
-OPT=-c
-PSHSRC=push_swap.h lists.c stackfunctions*.c algo_helpers*.c findfunctions.c \
+DBFLG = -Wall -Werror -Wextra -g
+PSRC=push_swap.h lists.c stackfunctions*.c algo_helpers*.c findfunctions.c \
 stackmanipulation.c libft/*.c sorting_algorithms*.c push_swap.c
-CHKSRC=push_swap.h lists.c stackfunctions*.c algo_helpers*.c findfunctions.c \
+CSRC=push_swap.h lists.c stackfunctions*.c algo_helpers*.c findfunctions.c \
 stackmanipulation.c libft/*.c sorting_algorithms*.c checker.c
 
-all: push_swap checker
+all: $(MAKELIB) $(CNME) $(PNME)
 
-push_swap:
-	gcc $(FLAGS) $(PSHSRC) -ggdb3 -o push_swap
+$(MAKELIB):
+	@$(MAKE) $(MAKELIB)
 
-checker:
-	gcc $(FLAGS) $(CHKSRC) -ggdb3 -o checker
+$(CNME):
+	gcc $(FLGS) $(CSRC) -o $(CNME)
 
-so:
-	@gcc -c -Wall -Werror -Wextra $(SRC) $(LIBSRC)
-	@gcc -shared -o libft.so -fPIC $(OBJ) $(LIBOBJ)
-	@rm $(OBJ) $(LIBOBJ)
+$(PNME):
+	gcc $(FLGS) $(PSRC) -o $(PNME)
+
+ps:
+	gcc $(FLGS) $(CSRC) -o $(CNME)
+	gcc $(FLGS) $(PSRC) -o $(PNME)
+
+db:
+	gcc $(DBFLG) $(CSRC) -o $(CNME)
+	gcc $(DBFLG) $(PSRC) -o $(PNME)
 
 clean:
-	@/bin/rm -f $(OBJ) $(LIBOBJ) *.o
+	rm -fr $(CNME) $(PNME) $(CNME).dSYM $(PNME).dSYM
+	rm -f libft/*.o
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	rm -f libft/*.o libft/libft.a
 
 re: clean all
+
+redb: clean db
