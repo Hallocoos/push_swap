@@ -12,19 +12,6 @@
 
 #include "push_swap.h"
 
-void	free_array(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-}
-
 void sortstack(t_stack **stacka, t_stack **stackb)
 {
 	int len;
@@ -64,20 +51,22 @@ void initialize(int argc, char **args)
 
 int main(int argc, char **argv)
 {
-	char	**args;
+	char	**numbers;
 
-	args = argv + 1;
-	if (argc > 1)
+	numbers = argv + 1;
+	if (argc < 2)
+		write(1, "Error", 5);
+	if (argc == 2)
 	{
-		argc = argc - 1;
-		if (argc == 1 && ft_strchr(args[0], ' ') != NULL)
-		{
-			args = ft_strsplit(args[0], ' ');
-			argc = ft_arrlen(args);
-			initialize(argc, args);
-		}
-		else
-			initialize(argc, args);
+		numbers = ft_strsplit(argv[1], ' ');
+		argc = ft_arrlen(numbers);
+		initialize(argc, numbers);
+		free_array(numbers);
+	}
+	else
+	{
+		argc -= 1;
+		initialize(argc, numbers);
 	}
 	return (0);
 }

@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_free_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-vos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/03 10:00:36 by hde-vos           #+#    #+#             */
-/*   Updated: 2019/06/10 15:56:46 by hde-vos          ###   ########.fr       */
+/*   Created: 2020/04/10 15:50:55 by hde-vos           #+#    #+#             */
+/*   Updated: 2020/04/11 11:21:25 by hde-vos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strnew(size_t size)
+void	free_array(char **arr)
 {
-	char *s;
+	int	i;
 
-	if (size <= INTMAX)
+	i = 0;
+	while (arr[i])
 	{
-		if (!(s = (char *)malloc(size + 1)))
-			return (0);
-		else
-		{
-			ft_bzero(s, size + 1);
-			return (s);
-		}
+		free(arr[i]);
+		i++;
 	}
-	else
-		return (0);
 }

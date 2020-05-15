@@ -103,5 +103,6 @@ int					ft_arrlen(char **array);
 long				ft_atol(const char *str);
 int					ft_isnumber(char *str);
 void				ft_freearrays(char **array);
+void				free_array(char **arr);
 
 #endif

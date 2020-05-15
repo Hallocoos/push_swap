@@ -68,7 +68,7 @@ int	main(int argc, char **argv)
 		if (argc == 1 && ft_strchr(args[0], ' ') != NULL)
 			args = ft_strsplit(args[0], ' ');
 		stackb = NULL;
-		if ((argc = ft_arrlen(args)) && (stacka = stackfill(argc, args))  && readline(&stacka, &stackb) == 0)
+		if ((argc = ft_arrlen(args)) && (stacka = stackfill(argc, args)) && readline(&stacka, &stackb) == 0)
 		{
 			if (checker(&stacka) == 1 && (stackb == NULL))
 				write(1, "OK\n", 3);

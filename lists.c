@@ -99,6 +99,7 @@ t_stack	*stackfill(int n, char **args)
 	t_stack *stack;
 	t_stack	*new;
 	int		i;
+	char 	*value;
 
 	i = 0;
 	new = NULL;
@@ -107,13 +108,17 @@ t_stack	*stackfill(int n, char **args)
 		stack = createnode(ft_atoi(args[i]));
 		while (++i < n)
 		{
-			if (ft_strequ(ft_itoa(ft_atoi(args[i])), args[i]) == 0)
+			value = ft_itoa(ft_atoi(args[i]));
+			if (ft_strequ(value, args[i]) == 0)
+			{
+				free(value);
 				return (NULL);
+			}
+			free(value);
 			new = createnode(ft_atoi(args[i]));
 			add_tail(new, &stack);
 		}
+		return (stack);
 	}
-	else
-		return (NULL);
-	return (stack);
+	return (NULL);
 }

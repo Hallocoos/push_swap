@@ -52,7 +52,6 @@ void 	ft_rrb(t_stack **stackb, int n);
 void	ft_rrr(t_stack **stacka, t_stack **stackb, int i);
 int		is_duplicate(char **arr);
 void	set_weight(t_stack *stack);
-void	freestack(t_stack **stack);
 int		stacksize(t_stack *stack);
 void	sort_two(t_stack **stack);
 void	sort_three(t_stack **stack);
