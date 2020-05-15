@@ -1,1 +1,0 @@
-make checker -B && valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./checker 1 2 2147483648 -> leaks 2 bytes

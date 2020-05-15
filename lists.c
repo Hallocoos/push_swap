@@ -98,8 +98,8 @@ t_stack	*stackfill(int n, char **args)
 {
 	t_stack *stack;
 	t_stack	*new;
-	int		i;
-	char 	*value;
+	int			i;
+	char 		*value;
 
 	i = 0;
 	new = NULL;
@@ -123,5 +123,6 @@ t_stack	*stackfill(int n, char **args)
 		}
 		return (stack);
 	}
+	free(value);
 	return (NULL);
 }

@@ -2,8 +2,8 @@ PNME = push_swap
 CNME = checker
 LIB = libft/libft.a
 MAKELIB = -C libft
-FLAGS=-Wall -Werror -Wextra
-DBFLG = -Wall -Werror -Wextra -g
+FLGS=-Wall -Werror -Wextra
+DBFLG =-Wall -Werror -Wextra -g
 PSRC=push_swap.h lists.c stackfunctions*.c algo_helpers*.c findfunctions.c \
 stackmanipulation.c libft/*.c sorting_algorithms*.c push_swap.c
 CSRC=push_swap.h lists.c stackfunctions*.c algo_helpers*.c findfunctions.c \
