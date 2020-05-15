@@ -25,8 +25,8 @@ ps:
 	gcc $(FLGS) $(PSRC) -o $(PNME)
 
 db:
-	gcc $(DBFLG) $(CSRC) -o $(CNME)
-	gcc $(DBFLG) $(PSRC) -o $(PNME)
+	gcc $(DBFLG) $(CSRC) -ggdb3 -o $(CNME)
+	gcc $(DBFLG) $(PSRC) -ggdb3 -o $(PNME)
 
 clean:
 	rm -fr $(CNME) $(PNME) $(CNME).dSYM $(PNME).dSYM
