@@ -85,7 +85,7 @@ int	main(int argc, char **argv)
 			free_stack(&stackb);
 		}
 		else
-			write(1, "Error\n", 7);\
+			write(1, "Error\n", 7);
 	}
 	return (0);
 }
