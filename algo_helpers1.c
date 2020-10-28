@@ -19,6 +19,7 @@ int		is_sorted_desc(t_stack *stackb)
 	return (1);
 }
 
+
 void stackb_sort_two(t_stack **stack)
 {
 	if ((*stack)->weight > (*stack)->next->weight)
